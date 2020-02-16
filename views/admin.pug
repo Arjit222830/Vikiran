@@ -1,23 +1,9 @@
 <!DOCTTYPE html>
 <html>
-    <head>
-        
-        title Vikiran 2020
-        
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-        
-        <link rel="stylesheet" type="text/css" href="vikiran.css">
-        <link rel="stylesheet" href="./bootstrap.min.css">
-        <script src="./jquery.min.js"></script>
-        <script src="./bootstrap.min_cloudfare.js"></script>
-        <script src="./bootstrap.min.js"></script>
-        
-    </head> 
+    include header.pug
     
     <body>
         <div class="wrapper">
-
             <form id="form">
                 <label for="name" style="margin-right:1.5vw">Society Name</label>
                 <input type="text" placeholder="Society Name" id="data1" name="name"><br>
@@ -31,8 +17,10 @@
                 <input type="text" placeholder="Data5" id="data5" name="data5"><br>
                 <input id="sub" type="submit">
             </form>
-            
         </div>
+
+        <a href="/competition1"><button>Intra</button></a>
+        <a href="/competition2"><button>Inter</button></a>
         <script src="./vikiran.js"></script>
     </body>
 </html>

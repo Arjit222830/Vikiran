@@ -23,6 +23,9 @@ app.get('/',async function(req,res){
     res.status(200).render('admin');
 });
 
+app.get('/competition:value',async function(req,res){
+    res.status(200).render('competition',{value: req.params.value});
+});
 
 app.post('/admin',async (req,res)=>{
     const {error}= validate(req.body);//result.error(joi package)
