@@ -1,0 +1,24 @@
+<!DOCTTYPE html>
+<html>
+    include header.pug
+    
+    <body>
+        <div class="container">
+            h3(class="text-center")= item
+            br
+            <form id="form_register">
+                <label for="name" style="margin-right:1.5vw">Name</label>
+                <input type="text" placeholder="Name" id="data1" name="name"><br>
+                <label for="president" style="margin-right:1.5vw">College Name</label>
+                <input type="text" placeholder="College Name" id="data2" name="college_name"><br>
+                <label for="email" style="margin-right:1.5vw">E-Mail</label>
+                <input type="email" placeholder="Email" id="data3" name="email"><br>
+                <label for="contact" style="margin-right:1.5vw">Contact No.</label>
+                <input type="number" placeholder="Contact No." id="data4" name="contact"><br>
+                <input id="sub" type="submit">
+            </form>
+        </div>   
+
+        <script src="../vikiran.js"></script>
+    </body>
+</html>

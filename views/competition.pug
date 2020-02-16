@@ -3,24 +3,36 @@
     include header.pug
     
     <body>
-        <div class="wrapper">
+        -var intra= ['Cesta','Cricket','Ludo','Avaansh']
+        -var inter= ['Conchoord','Awaaz','Error404','Debate']
+        <div class="container">
             if(value==1)
-                div(class="card" style="width: 18rem;")
-                    div(class="card-body")
-                        h5(class="card-title")= "Intra"
-                        h6(class="card-subtitle mb-2 text-muted")= "Card subtitle"
-                        p(class="card-text")= "Some quick example text to build on the card title and make up the bulk of the card's content."
-                        a(href="#" class="card-link")= "Card link"
-                        a(href="#" class="card-link")= "Another link"
+                br
+                h3(class="text-center")= "Intra-Competition"
+                div(class="row")
+                    each r in intra
+                        div(class="col-4")
+                            br
+                            div(class="card" style="width: 18rem;")
+                                div(class="card-body")
+                                    h5(class="card-title")= r
+                                    h6(class="card-subtitle mb-2 text-muted")= "Sub-title"
+                                    p(class="card-text")= "Some quick example text to build on the card title and make up the bulk of the card's content."
+                                    a(href="/register/"+r class="card-link")= "Register"
 
             else if(value==2)
-                div(class="card" style="width: 18rem;")
-                    div(class="card-body")
-                        h5(class="card-title")= "Inter"
-                        h6(class="card-subtitle mb-2 text-muted")= "Card subtitle"
-                        p(class="card-text")= "Some quick example text to build on the card title and make up the bulk of the card's content."
-                        a(href="#" class="card-link")= "Card link"
-                        a(href="#" class="card-link")= "Another link"
+                br
+                h3(class="text-center")= "Inter-Competition"
+                div(class="row")
+                    each r in inter
+                        div(class="col-4")
+                            br
+                            div(class="card" style="width: 18rem;")
+                                div(class="card-body")
+                                    h5(class="card-title")= r
+                                    h6(class="card-subtitle mb-2 text-muted")= "Sub-title"
+                                    p(class="card-text")= "Some quick example text to build on the card title and make up the bulk of the card's content."
+                                    a(href="/register/"+r class="card-link")= "Register"
         </div>
             
 

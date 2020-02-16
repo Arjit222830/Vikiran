@@ -3,8 +3,10 @@
     include header.pug
     
     <body>
-        <div class="wrapper">
-            <form id="form">
+        <div class="container">
+            h3(class="text-center")= "Vikiran Back-End"
+            br
+            <form id="form_admin">
                 <label for="name" style="margin-right:1.5vw">Society Name</label>
                 <input type="text" placeholder="Society Name" id="data1" name="name"><br>
                 <label for="president" style="margin-right:1.5vw">President Name</label>
@@ -17,10 +19,12 @@
                 <input type="text" placeholder="Data5" id="data5" name="data5"><br>
                 <input id="sub" type="submit">
             </form>
+
+            <a href="/competition1"><button>Intra</button></a>
+            <a href="/competition2"><button>Inter</button></a>
+
         </div>
 
-        <a href="/competition1"><button>Intra</button></a>
-        <a href="/competition2"><button>Inter</button></a>
         <script src="./vikiran.js"></script>
     </body>
 </html>

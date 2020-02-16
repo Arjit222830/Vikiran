@@ -3,7 +3,8 @@ var express= require("express");
 var app = express();
 var bodyParser = require("body-parser");
 const config= require('config');
-const {Society,validate}= require('./society');
+const societies= require('./routes/societies');
+const registers= require('./routes/registers');
 
 mongoose.connect(config.get('db'),{useNewUrlParser: true,useUnifiedTopology: true})
 .then(()=> console.log(`Connected to ${config.get('db')}...`))
@@ -16,6 +17,8 @@ app.use(express.json());
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: false}));
+app.use('/society',societies);
+app.use('/register',registers);
 
 app.set("view engine", "pug");
 
@@ -25,24 +28,6 @@ app.get('/',async function(req,res){
 
 app.get('/competition:value',async function(req,res){
     res.status(200).render('competition',{value: req.params.value});
-});
-
-app.post('/admin',async (req,res)=>{
-    const {error}= validate(req.body);//result.error(joi package)
-    if(error)
-        return res.status(400).send(error.details[0].message);
-    
-    const society= new Society({
-        name: req.body.name,
-		president: req.body.president,
-        data3: req.body.data3,
-        data4: req.body.data4,
-        data5: req.body.data5
-    });
-    
-    await society.save();
-
-    res.send({message:'Society Registeration Successful',link:'/'});
 });
 
 const port=process.env.PORT || 3000;
