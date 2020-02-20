@@ -24,8 +24,6 @@ router.post('/',async (req,res)=>{
     
     await register.save();
 
-    console.log("over");
-
     res.send({message:'Registeration Successful',link:'/'});
 });
 

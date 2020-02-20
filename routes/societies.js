@@ -8,11 +8,12 @@ router.post('/',async (req,res)=>{
         return res.status(400).send(error.details[0].message);
     
     const society= new Society({
-        name: req.body.name,
-		president: req.body.president,
-        data3: req.body.data3,
-        data4: req.body.data4,
-        data5: req.body.data5
+        Society_Name: req.body.society,
+		Event_Name: req.body.event,
+        Co_ordinator1: req.body.c1,
+        Co_ordinator2: req.body.c2,
+        Rules: req.body.rules,
+        Venue: req.body.venue
     });
     
     await society.save();

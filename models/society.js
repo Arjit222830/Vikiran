@@ -1,24 +1,28 @@
 const Joi= require('joi');
 const mongoose =require('mongoose');
 
-const Society= mongoose.model('societies', new mongoose.Schema({
-    name: {
+const Society= mongoose.model('lists', new mongoose.Schema({
+    Society_Name: {
         type: String,
         required: true
     },
-    president: {
+    Event_Name: {
         type: String,
         required: true
     },
-    data3: {
+    Co_ordinator1: {
         type: String,
         required: true
     },
-    data4: {
+    Co_ordinator2: {
         type: String,
         required: true
     },
-    data5: {
+    Rules: {
+        type: String,
+        required: true
+    },
+    Venue: {
         type: String,
         required: true
     }
@@ -27,11 +31,12 @@ const Society= mongoose.model('societies', new mongoose.Schema({
 
 function validateSociety(society){    
     const schema= {
-        name: Joi.string().min(1).max(50).required(),
-        president: Joi.string().min(1).max(50).required(),
-        data3: Joi.string().min(1).max(50).required(),
-        data4: Joi.string().min(1).max(50).required(),
-        data5: Joi.string().min(1).max(50).required()
+        society: Joi.string().min(1).max(50).required(),
+        event: Joi.string().min(1).max(50).required(),
+        c1: Joi.string().min(1).max(50).required(),
+        c2: Joi.string().min(1).max(50).required(),
+        rules: Joi.string().min(1).max(300).required(),
+        venue: Joi.string().min(1).max(50).required()
     };
     return Joi.validate(society, schema);
 }

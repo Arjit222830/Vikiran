@@ -4,11 +4,12 @@ $(document).ready(()=>{
         $.ajax({
             url: '/society',
             data :{
-                name: $('#data1').val(),
-                president: $('#data2').val(),
-                data3: $('#data3').val(),
-                data4: $('#data4').val(),
-                data5: $('#data5').val(),
+                society: $('#data1').val(),
+                event: $('#data2').val(),
+                c1: $('#data3').val(),
+                c2: $('#data4').val(),
+                rules: $('#data5').val(),
+                venue: $('#data6').val(),
             },
             method: "POST",
             success : function(data){
