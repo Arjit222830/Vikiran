@@ -6,9 +6,9 @@ $(document).ready(()=>{
             data :{
                 society: $('#data1').val(),
                 event: $('#data2').val(),
-                c1: $('#data3').val(),
-                c2: $('#data4').val(),
-                rules: $('#data5').val(),
+                about: $('#data3').val(),
+                c1: $('#data4').val(),
+                c2: $('#data5').val(),
                 venue: $('#data6').val(),
                 type:$("#data7:checked").val(),
                 date:$("#data8").val(),

@@ -28,7 +28,7 @@ app.get('/',async function(req,res){
 });
 
 app.get('/competition:value',async function(req,res){
-    const event_details= await Society.find().sort('-date');
+    const event_details= await Society.find();
     res.status(200).render('competition',{event_details:event_details,value: req.params.value});
 });
 

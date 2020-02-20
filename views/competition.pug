@@ -3,18 +3,19 @@
     include header.pug
     
     <body>
-        -var intra= ['Cesta','Cricket','Ludo','Avaansh']
-        -var inter= ['Conchoord','Awaaz','Error404','Debate']
-        -var i1= []
-        -var i2= []
+
+        -var intra= []
+        -var inter= []
 
         each r in event_details
-            -console.log(r.Competition_Type)
-            i2.push(JSON.stringify(r))
-
-        -console.log(i2);
+            -if(r.Competition_Type=="Intra")
+                -intra.push(r)
+            -else 
+                -inter.push(r)
+            
 
         <div class="container">
+
             if(value==1)
                 br
                 h3(class="text-center")= "Intra-Competition"
@@ -24,10 +25,9 @@
                             br
                             div(class="card" style="width: 18rem;")
                                 div(class="card-body")
-                                    h5(class="card-title")= r
-                                    h6(class="card-subtitle mb-2 text-muted")= "Sub-title"
-                                    p(class="card-text")= "Some quick example text to build on the card title and make up the bulk of the card's content."
-                                    a(href="/register/"+r class="card-link")= "Register"
+                                    h5(class="card-title text-center")= "Society : "+r.Society_Name  
+                                    h6(class="card-subtitle mb-2 text-muted text-center")= "Event : "+r.Event_Name
+                                    a(href="/register/"+r.Society_Name class="card-link")= "More Info"
 
             else if(value==2)
                 br
@@ -38,10 +38,10 @@
                             br
                             div(class="card" style="width: 18rem;")
                                 div(class="card-body")
-                                    h5(class="card-title")= r
-                                    h6(class="card-subtitle mb-2 text-muted")= "Sub-title"
-                                    p(class="card-text")= "Some quick example text to build on the card title and make up the bulk of the card's content."
-                                    a(href="/register/"+r class="card-link")= "Register"
+                                    h5(class="card-title text-center")= "Society : "+r.Society_Name  
+                                    h6(class="card-subtitle mb-2 text-muted text-center")= "Event : "+r.Event_Name
+                                    a(href="/register/"+r.Society_Name class="card-link")= "More Info"
+
         </div>
             
 

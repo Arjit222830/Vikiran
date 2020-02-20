@@ -10,15 +10,15 @@ const Society= mongoose.model('event_info', new mongoose.Schema({
         type: String,
         required: true
     },
+    About:{
+        type: String,
+        required: true
+    },
     Co_ordinator1: {
         type: String,
         required: true
     },
     Co_ordinator2: {
-        type: String,
-        required: true
-    },
-    Rules: {
         type: String,
         required: true
     },
@@ -45,9 +45,9 @@ function validateSociety(society){
     const schema= {
         society: Joi.string().min(1).max(50).required(),
         event: Joi.string().min(1).max(50).required(),
+        about: Joi.string().min(1).max(5000).required(),
         c1: Joi.string().min(1).max(50).required(),
         c2: Joi.string().min(1).max(50).required(),
-        rules: Joi.string().min(1).max(300).required(),
         venue: Joi.string().min(1).max(50).required(),
         type: Joi.string().required(),
         date: Joi.string().required(),

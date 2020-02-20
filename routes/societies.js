@@ -9,10 +9,10 @@ router.post('/',async (req,res)=>{
     
     const society= new Society({
         Society_Name: req.body.society,
-		Event_Name: req.body.event,
+        Event_Name: req.body.event,
+        About: req.body.about,
         Co_ordinator1: req.body.c1,
         Co_ordinator2: req.body.c2,
-        Rules: req.body.rules,
         Venue: req.body.venue,
         Competition_Type: req.body.type,
         Event_Date: req.body.date,
