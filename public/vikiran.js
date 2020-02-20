@@ -10,6 +10,9 @@ $(document).ready(()=>{
                 c2: $('#data4').val(),
                 rules: $('#data5').val(),
                 venue: $('#data6').val(),
+                type:$("#data7:checked").val(),
+                date:$("#data8").val(),
+                time:$("#data9").val()
             },
             method: "POST",
             success : function(data){

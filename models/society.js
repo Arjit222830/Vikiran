@@ -1,7 +1,7 @@
 const Joi= require('joi');
 const mongoose =require('mongoose');
 
-const Society= mongoose.model('lists', new mongoose.Schema({
+const Society= mongoose.model('event_info', new mongoose.Schema({
     Society_Name: {
         type: String,
         required: true
@@ -25,6 +25,18 @@ const Society= mongoose.model('lists', new mongoose.Schema({
     Venue: {
         type: String,
         required: true
+    },
+    Competition_Type: {
+        type: String,
+        required: true
+    },
+    Event_Date: {
+        type: String,
+        required: true
+    },
+    Event_Time: {
+        type: String,
+        required: true
     }
 })
 );
@@ -36,7 +48,10 @@ function validateSociety(society){
         c1: Joi.string().min(1).max(50).required(),
         c2: Joi.string().min(1).max(50).required(),
         rules: Joi.string().min(1).max(300).required(),
-        venue: Joi.string().min(1).max(50).required()
+        venue: Joi.string().min(1).max(50).required(),
+        type: Joi.string().required(),
+        date: Joi.string().required(),
+        time: Joi.string().required()
     };
     return Joi.validate(society, schema);
 }

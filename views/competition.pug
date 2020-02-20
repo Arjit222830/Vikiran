@@ -5,6 +5,15 @@
     <body>
         -var intra= ['Cesta','Cricket','Ludo','Avaansh']
         -var inter= ['Conchoord','Awaaz','Error404','Debate']
+        -var i1= []
+        -var i2= []
+
+        each r in event_details
+            -console.log(r.Competition_Type)
+            i2.push(JSON.stringify(r))
+
+        -console.log(i2);
+
         <div class="container">
             if(value==1)
                 br

@@ -3,6 +3,7 @@ var express= require("express");
 var app = express();
 var bodyParser = require("body-parser");
 const config= require('config');
+const {Society}= require('./models/society');
 const societies= require('./routes/societies');
 const registers= require('./routes/registers');
 
@@ -27,7 +28,8 @@ app.get('/',async function(req,res){
 });
 
 app.get('/competition:value',async function(req,res){
-    res.status(200).render('competition',{value: req.params.value});
+    const event_details= await Society.find().sort('-date');
+    res.status(200).render('competition',{event_details:event_details,value: req.params.value});
 });
 
 const port=process.env.PORT || 3000;
