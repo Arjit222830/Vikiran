@@ -27,9 +27,9 @@ app.get('/',async function(req,res){
     res.status(200).render('admin');
 });
 
-app.get('/competition:value',async function(req,res){
-    const event_details= await Society.find();
-    res.status(200).render('competition',{event_details:event_details,value: req.params.value});
+app.get('/competition/:type',async function(req,res){
+    const events= await Society.find({Competition_Type:req.params.type});
+    res.status(200).render('competition',{events:events,type: req.params.type});
 });
 
 const port=process.env.PORT || 3000;

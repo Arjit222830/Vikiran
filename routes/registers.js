@@ -1,9 +1,13 @@
 const express= require('express');
 const router= express.Router();
 const {Register, validate}= require('../models/register');
+const {Society}= require('../models/society');
 
 router.get('/:item',async function(req,res){
-    res.status(200).render('register',{item:req.params.item});
+    const event_details= await Society.find();
+    let event= await Society.find({Event_Name: req.params.item});
+
+    res.status(200).render('register',{event:event});
 });
 
 router.post('/',async (req,res)=>{

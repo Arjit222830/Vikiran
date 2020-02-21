@@ -3,34 +3,22 @@
     include header.pug
     
     <body>
-
-        -var intra= []
-        -var inter= []
-
-        each r in event_details
-            -if(r.Competition_Type=="Intra")
-                -intra.push(r)
-            -else 
-                -inter.push(r)
         
-        -function Competition(str,type)
+        -function Competition(events,type)
             br
-            h3(class="text-center")= str+"-Competition"
+            h3(class="text-center")= type+"-Competition"
             div(class="row")
-                each r in type
+                each r in events
                     div(class="col-4")
                         br
                         div(class="card" style="width: 18rem;")
                             div(class="card-body")
                                 h5(class="card-title text-center")= "Society : "+r.Society_Name  
                                 h6(class="card-subtitle mb-2 text-muted text-center")= "Event : "+r.Event_Name
-                                a(href="/register/"+r.Society_Name class="card-link")= "More Info"    
+                                a(href="/register/"+r.Event_Name class="card-link")= "More Info"    
 
         <div class="container">
-            if(value==1)
-                -Competition("Intra",intra)
-            else if(value==2)
-                -Competition("Inter",inter)
+            -Competition(events,type)
         </div>  
 
         <script src="../vikiran.js"></script>

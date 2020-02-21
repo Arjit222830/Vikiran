@@ -6,7 +6,11 @@ router.post('/',async (req,res)=>{
     const {error}= validate(req.body);//result.error(joi package)
     if(error)
         return res.status(400).send(error.details[0].message);
-    
+
+    let event= await Society.findOne({ Event_Name: req.body.event});
+    if(event)
+        return res.status(400).send('Event already registered..');
+
     const society= new Society({
         Society_Name: req.body.society,
         Event_Name: req.body.event,
