@@ -12,39 +12,28 @@
                 -intra.push(r)
             -else 
                 -inter.push(r)
-            
+        
+        -function Competition(str,type)
+            br
+            h3(class="text-center")= str+"-Competition"
+            div(class="row")
+                each r in type
+                    div(class="col-4")
+                        br
+                        div(class="card" style="width: 18rem;")
+                            div(class="card-body")
+                                h5(class="card-title text-center")= "Society : "+r.Society_Name  
+                                h6(class="card-subtitle mb-2 text-muted text-center")= "Event : "+r.Event_Name
+                                a(href="/register/"+r.Society_Name class="card-link")= "More Info"    
 
         <div class="container">
-
             if(value==1)
-                br
-                h3(class="text-center")= "Intra-Competition"
-                div(class="row")
-                    each r in intra
-                        div(class="col-4")
-                            br
-                            div(class="card" style="width: 18rem;")
-                                div(class="card-body")
-                                    h5(class="card-title text-center")= "Society : "+r.Society_Name  
-                                    h6(class="card-subtitle mb-2 text-muted text-center")= "Event : "+r.Event_Name
-                                    a(href="/register/"+r.Society_Name class="card-link")= "More Info"
-
+                -Competition("Intra",intra)
             else if(value==2)
-                br
-                h3(class="text-center")= "Inter-Competition"
-                div(class="row")
-                    each r in inter
-                        div(class="col-4")
-                            br
-                            div(class="card" style="width: 18rem;")
-                                div(class="card-body")
-                                    h5(class="card-title text-center")= "Society : "+r.Society_Name  
-                                    h6(class="card-subtitle mb-2 text-muted text-center")= "Event : "+r.Event_Name
-                                    a(href="/register/"+r.Society_Name class="card-link")= "More Info"
-
-        </div>
-            
+                -Competition("Inter",inter)
+        </div>  
 
         <script src="../vikiran.js"></script>
+
     </body>
 </html>

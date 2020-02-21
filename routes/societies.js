@@ -11,6 +11,12 @@ router.post('/',async (req,res)=>{
         Society_Name: req.body.society,
         Event_Name: req.body.event,
         About: req.body.about,
+        Rules:{
+            1:req.body.r1,
+            2:req.body.r2,
+            3:req.body.r3,
+            4:req.body.r4
+        },
         Co_ordinator1: req.body.c1,
         Co_ordinator2: req.body.c2,
         Venue: req.body.venue,
