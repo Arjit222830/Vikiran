@@ -32,6 +32,11 @@ app.get('/competition/:type',async function(req,res){
     res.status(200).render('competition',{events:events,type: req.params.type});
 });
 
+app.get('/event/:item',async function(req,res){
+    let event= await Society.find({Event_Name: req.params.item});
+    res.status(200).render('event',{event:Object.assign({}, event)[0]});
+});
+
 const port=process.env.PORT || 3000;
 console.log(port);
 const server=app.listen(port, ()=> console.log(`Listening on port ${port}...`));

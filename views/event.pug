@@ -1,0 +1,47 @@
+<!DOCTTYPE html>
+<html>
+    include header.pug
+    
+    <body>
+
+        -console.log(event.Rules);
+        -var key=['Event Name', 'About','Co-ordinators','Venue','Type','Date','Timing'];
+        -var value=[event.Event_Name, event.About,[event.Co_ordinator1,event.Co_ordinator2],event.Venue,event.Competition_Type,event.Event_Date,event.Event_Time]
+        <div class="container">
+            h3(class="text-center")= event.Society_Name
+            <br><br>
+            <table class="text-center">
+                <col width="600vw" height="1vh">
+                <col width="200vw"  >
+                <thead>
+                    <tr>
+                        th="Events"
+                        th="Details"
+                    </tr>
+                </thead>
+                <tbody>
+                    -for(var i=0;i<7;i++)
+                        <tr>
+                            td= key[i]
+                            -if(i!=2)
+                                td= value[i]
+                            -else
+                                td=value[i][0]+"  &  "+value[i][1]
+                        </tr>
+                </tbody>
+            </table>
+            
+            <br><br>
+            <h4 class="text-center">Rules</h4>
+            <ul>
+                -for(var i=0;i<4;i++)
+                    -if(event.Rules[i+1]!=' ')    
+                        li= event.Rules[i+1]
+            </ul>
+
+            <a href="/register" class="text-center"><button>Register</button>
+        </div>   
+
+        <script src="../vikiran.js"></script>
+    </body>
+</html>
