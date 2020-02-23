@@ -3,11 +3,11 @@ const router= express.Router();
 const {Register, validate}= require('../models/register');
 const {Society}= require('../models/society');
 
-router.get('/',async function(req,res){
-    res.status(200).render('register');
+router.get('/:Event',async function(req,res){
+    res.status(200).render('register',{Event: req.params.Event});
 });
 
-router.post('/',async (req,res)=>{
+router.post('/:Event',async (req,res)=>{
     const {error}= validate(req.body);//result.error(joi package)
     if(error)
         return res.status(400).send(error.details[0].message);
@@ -20,7 +20,8 @@ router.post('/',async (req,res)=>{
         name: req.body.name,
 		college_name: req.body.college_name,
         email: req.body.email,
-        contact: req.body.contact
+        contact: req.body.contact,
+        event_name: req.params.Event
     });
     
     await register.save();

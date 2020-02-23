@@ -34,12 +34,12 @@ $(document).ready(()=>{
     $("#form_register").submit( (e)=>{
         e.preventDefault();
         $.ajax({
-            url: '/register',
+            url: '/register/'+event,
             data :{
                 name: $('#data1').val(),
                 college_name: $('#data2').val(),
                 email: $('#data3').val(),
-                contact: $('#data4').val()
+                contact: $('#data4').val() 
             },
             method: "POST",
             success : function(data){

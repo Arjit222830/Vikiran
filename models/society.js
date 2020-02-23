@@ -3,7 +3,7 @@ const mongoose =require('mongoose');
 
 const Rule_Object= new mongoose.Schema({
     1:{
-        type: String
+        type: String,
     },
     2:{
         type: String
