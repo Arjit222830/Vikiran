@@ -4,6 +4,7 @@ var app = express();
 var bodyParser = require("body-parser");
 const config= require('config');
 const {Society}= require('./models/society');
+const {Register}= require('./models/register');
 const societies= require('./routes/societies');
 const registers= require('./routes/registers');
 
@@ -25,6 +26,12 @@ app.set("view engine", "pug");
 
 app.get('/',async function(req,res){
     res.status(200).render('admin');
+});
+
+app.get('/details',async function(req,res){
+    const registers= await Register.find();
+    const events_info= await Society.find();
+    res.status(200).render('details',{events_info:events_info,registers: registers});
 });
 
 app.get('/competition/:type',async function(req,res){

@@ -1,0 +1,32 @@
+<!DOCTTYPE html>
+<html>
+    include header.pug
+    
+    <body>
+
+        -var events=[];
+        each r in events_info
+            -events.push(r.Event_Name);
+        
+        <div class="container">
+            div(class="row")
+                for event in events
+                    -card(event);
+        </div> 
+
+            -function card(event)
+                div(class="col-4")
+                    br
+                    div(class="card" style="width: 18rem;")
+                        div(class="card-body")
+                            h5(class="card-title text-center")= "Event : "+event
+                            br
+                            h6(class="card-title text-center")= "Teams"
+                            each r in registers
+                                -if(r.event_name==event)
+                                    h6(class="card-subtitle mb-2  text-center")= r.team_name
+
+        <script src="../vikiran.js"></script>
+
+    </body>
+</html>
