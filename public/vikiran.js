@@ -36,10 +36,12 @@ $(document).ready(()=>{
         $.ajax({
             url: '/register/'+event,
             data :{
-                name: $('#data1').val(),
-                college_name: $('#data2').val(),
-                email: $('#data3').val(),
-                contact: $('#data4').val() 
+                team_name: $('#data1').val(),
+                team_leader: $('#data2').val(),
+                college_name: $('#data3').val(),
+                email: $('#data4').val(),
+                contact: $('#data5').val(),
+                total_members: $('#numbers').val()
             },
             method: "POST",
             success : function(data){

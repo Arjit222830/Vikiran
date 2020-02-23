@@ -17,11 +17,13 @@ router.post('/:Event',async (req,res)=>{
         return res.status(400).send('User already registered..');
     
     const register= new Register({
-        name: req.body.name,
+        event_name: req.params.Event,
+        team_name: req.body.team_name,
+        team_leader: req.body.team_leader,
+        total_members: req.body.total_members,
 		college_name: req.body.college_name,
         email: req.body.email,
-        contact: req.body.contact,
-        event_name: req.params.Event
+        contact: req.body.contact
     });
     
     await register.save();
