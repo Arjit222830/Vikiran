@@ -22,9 +22,15 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use('/society',societies);
 app.use('/register',registers);
 
+require('./prod.js')(app);
+
 app.set("view engine", "pug");
 
 app.get('/',async function(req,res){
+    res.status(200).render('index');
+});
+
+app.get('/admin',async function(req,res){
     res.status(200).render('admin');
 });
 
