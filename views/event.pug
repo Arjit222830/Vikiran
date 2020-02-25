@@ -3,19 +3,20 @@
     include header.pug
     
     <body>
-    
+     div(class="color")
         -var key=['Event Name', 'About','Co-ordinators','Venue','Type','Date','Timing'];
         -var value=[event.Event_Name, event.About,[event.Co_ordinator1,event.Co_ordinator2],event.Venue,event.Competition_Type,event.Event_Date,event.Event_Time]
         <div class="container">
-            h3(class="text-center")= event.Society_Name
+        div(class="pad")
+            h3(class="text-center content")= event.Society_Name
             <br><br>
-            <table class="text-center">
+            <table class="text-center content">
                 <col width="600vw" height="1vh">
-                <col width="200vw"  >
+                <col width="600vw"  >
                 <thead>
                     <tr>
-                        th="Events"
-                        th="Details"
+                        th="Events:-"
+                        th="Details:-"
                     </tr>
                 </thead>
                 <tbody>
@@ -31,17 +32,16 @@
             </table>
             
             <br><br>
-            <h4 class="text-center">Rules</h4>
+            <div class="content">
+            <h4 class="text-center">Rules:-</h4>
             <ul>
                 -for(var i=0;i<4;i++)
                     -if(event.Rules[i+1]!=' ')    
                         li= event.Rules[i+1]
             </ul>
-
             a(href="/register/"+event.Event_Name class="text-center")
-                <button>Register</button>
+                <button class="btn">Register</button>
         </div>   
-
-        <script src="../vikiran.js"></script>
-    </body>
+</div>
+        <script src="../vikiran.js"></script></body>
 </html>
