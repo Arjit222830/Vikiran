@@ -3,17 +3,19 @@
     include header.pug
     
     <body>
-
+       div(class="color")
         -var events=[];
         each r in events_info
             -events.push(r.Event_Name);
         
         <div class="container">
+        div(class="pad")
+         <h3 class="text-center top content">Details</h3> 
             div(class="row")
                 for event in events
                     -card(event);
         </div> 
-
+        
             -function card(event)
                 div(class="col-4")
                     br

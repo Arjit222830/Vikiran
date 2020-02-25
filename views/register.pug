@@ -3,13 +3,15 @@
     include header.pug
     
     <body>
-
+    div(class="color")
         -var html_names=['Team Name', 'Team Leader','College Name','E-Mail','Contact No.'];
         -var names= ['team_name','team_leader','college_name','email','contact'];
         -var types= ['text','text','text','email','number'];
-        <div class="container">   
-            <h3 class="text-center">Registration</h3> 
-            <form id="form_register">
+        <div class="container">  
+        div(class="pad")
+            <h3 class="text-center top content">Registration</h3> 
+            <form class="contact-form" id="form_register">
+
                 label(for="numbers" style="margin-right:1.5vw")= "Total Members"
                 select(id="numbers")
                     -for(var i=1;i<=20;i++)
@@ -19,7 +21,8 @@
                     label(for="data"+i style="margin-right:1.5vw")= html_names[i-1]
                     input(type=types[i-1] placeholder=html_names[i-1] id="data"+i name=names)
                     br
-                <input id="sub" type="submit">
+                
+                <button class="btn" id="sub" type="submit">submit</button>
             </form>
         </div>  
 

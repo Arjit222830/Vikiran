@@ -3,38 +3,40 @@
     include header.pug
     
     <body>
-
+    div(class="color")
         -var html_names=['Society Name','Event Name','About','Rule 1','Rule 2','Rule 3','Rule 4','Co-ordinator 1','Co-ordinator 2','Venue','Type of competition:-','Date','Time'];
         -var types=['text','text','textarea','text','text','text','text','text','text','text','radio', 'date','time'];
         -var names=['society','event','about','r1','r2','r3','r4','c1','c2','venue','type','date','time'];
         -var i=0;
-
+  
         <div class="container">
-            h3(class="text-center")= "Vikiran Back-End"
+        div(class="pad")
+            h3(class="text-center content")= "Vikiran Society Registration"
             br
-            <form id="form_admin">
+            <form class="contact-form" id="form_admin">
                 for r in html_names
-                    label(for="data"+(i+1) style="margin-right:1.5vw")=r
+                    label(for="text-center data"+(i+1))=r
+                    br
                     -if(types[i]=='radio')
                         label= "Intra"
                         input( type=types[i] placeholder=r style="margin-right:1.5vw" id="data"+(i+1) name=names[i] value="Intra")
                         label="Inter"
                         input( type=types[i] placeholder=r id="data"+(i+1) name=names[i++] value="Inter")
                     -else if(types[i]=='textarea')
-                        textarea(type=types[i-1] placeholder="Write about event" id="data"+(i+1) style="width:60vw;height:10vh" name=names[i++])
+                        textarea(type=types[i-1] placeholder="Write about event" id="data"+(i+1) name=names[i++])
                     -else
                        input( type=types[i] placeholder=r id="data"+(i+1) name=names[i++])
                     br
-                <input id="sub" type="submit">
+        
+                <button class="btn" id="sub" type="submit">submit</button>
             </form>
-
-            <a href="/competition/Intra"><button>Intra</button></a>
-            <a href="/competition/Inter"><button>Inter</button></a><br>
-            <a href="/details"><button>Details</button></a><br>
-
-
+            
+            <div class="row">
+            <a href="/competition/Intra"><button class="btn1">Intra</button></a>
+            <a href="/competition/Inter"><button class="btn1">Inter</button></a><br>
+            <a href="/details"><button class="btn1">Details</button></a><br>
+            </div>
         </div>
-
         <script src="./vikiran.js"></script>
     </body>
 </html>
