@@ -1,0 +1,28 @@
+<!DOCTTYPE html>
+<html>
+    include header.pug
+    
+    <body>
+
+       div(class="color")
+            div(class="container")              
+                div(class="pad")
+                    h3(class="text-center content")= event
+                br
+                table(class="text-center content")
+                    col(width="600vw" height="1vh")
+                    col(width="600vw")
+                    thead
+                        tr
+                            th="Team_Name:-"
+                            th="Team_Leader-"
+                    tbody
+                        each r in registers
+                            tr
+                                td= r.team_name
+                                td= r.team_leader
+        
+    <script src="../vikiran.js"></script>
+
+    </body>
+</html>

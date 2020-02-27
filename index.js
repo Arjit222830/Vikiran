@@ -40,6 +40,11 @@ app.get('/details',async function(req,res){
     res.status(200).render('details',{events_info:events_info,registers: registers});
 });
 
+app.get('/details/:event',async function(req,res){
+    const registers= await Register.find({event_name:  req.params.event});
+    res.status(200).render('info',{registers: registers,event: req.params.event});
+});
+
 app.get('/competition/:type',async function(req,res){
     const events= await Society.find({Competition_Type:req.params.type});
     res.status(200).render('competition',{events:events,type: req.params.type});

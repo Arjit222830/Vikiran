@@ -3,21 +3,22 @@
     include header.pug
     
     <body>
-       div(class="color")
-        -function Competition(events,type)
-            br
-            h3(class="text-center content")= type+"-Competition"
-            div(class="row")
-                each r in events
-                    div(class="col-4")
-                        br
-                        div(class="card" style="width: 18rem;")
-                            div(class="card-body")
-                                h5(class="card-title text-center")= "Society : "+r.Society_Name  
-                                h6(class="card-subtitle mb-2 text-muted text-center")= "Event : "+r.Event_Name
-                                a(href="/event/"+r.Event_Name class="card-link")= "More Info"    
 
-        <div class="container">
+        -function Competition(events,type)
+            div(class="container text-center")
+                div(class="pad")
+                    h3(class="content")= type+"-Events"
+                    div(class="row")
+                        each r in events
+                            div(class="col-sm-4")
+                                br
+                                div(class="card" style="width: 18rem;")
+                                    div(class="card-body")
+                                        h5(class="card-title text-center")= "Society : "+r.Society_Name  
+                                        h5(class="card-subtitle mb-2 text-muted text-center")= "Event : "+r.Event_Name
+                                        a(href="/event/"+r.Event_Name class="card-link")= "More Info"
+
+        <div class="color">
             -Competition(events,type)
         </div>  
 
