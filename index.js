@@ -35,9 +35,8 @@ app.get('/admin',async function(req,res){
 });
 
 app.get('/details',async function(req,res){
-    const registers= await Register.find();
-    const events_info= await Society.find();
-    res.status(200).render('details',{events_info:events_info,registers: registers});
+    const events= await Society.find();
+    res.status(200).render('details',{events:events});
 });
 
 app.get('/details/:event',async function(req,res){

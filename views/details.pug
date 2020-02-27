@@ -3,31 +3,19 @@
     include header.pug
     
     <body>
-       div(class="color")
-        -var events=[];
-        each r in events_info
-            -events.push(r.Event_Name);
-        
-        <div class="container text-center ">
-            div(class="pad")
-                <h3 class="content">Details</h3> 
+    
+        div(class="color")
+            div(class="container text-center")
+                div(class="pad")
+                    h3(class="content")= "Details"
                 div(class="row")
-                    for event in events
-                        -card(event);
-        </div> 
-        
-            -function card(event)
-                div(class="col-sm-4")
-                    br
-                    a(href="details/"+event style="color:black;text-decoration:none")
-                        div(class="card" style="width: 18rem;")
-                            div(class="card-body")
-                                h5(class="card-title text-center")= "Event : "+event
+                    each r in events
+                        a(href="/details/"+r.Event_Name style="color:black;text-decoration:none")
+                            div(class="col-sm-4")
                                 br
-                                h6(class="card-title text-center")= "Teams"
-                                each r in registers
-                                    -if(r.event_name==event)
-                                        h6(class="card-subtitle mb-2  text-center")= r.team_name
+                                div(class="card" style="width: 18rem;")
+                                    div(class="card-body")
+                                        h5(class="card-subtitle mb-2 text-muted text-center")= "Event : "+r.Event_Name
 
         <script src="../vikiran.js"></script>
 
