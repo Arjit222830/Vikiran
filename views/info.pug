@@ -10,19 +10,21 @@
                     h3(class="text-center content")= event
                 br
                 table(class="text-center content")
-                    col(width="600vw" height="1vh")
-                    col(width="600vw")
+                    col(width="400" height="1vh")
+                    col(width="400")
+                    col(width="400")
                     thead
                         tr
-                            th="Team_Name:-"
-                            th="Team_Leader-"
-
+                            th="Team_Name"
+                            th="Team_Leader"
+                            th="Total Members in Group"
                     tbody
                        
                         each r in registers
                             tr
                                 td= r.team_name
                                 td= r.team_leader
+                                td= r.total_members
         
     <script src="../vikiran.js"></script>
 
