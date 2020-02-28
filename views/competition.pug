@@ -4,10 +4,10 @@
     
     <body>
 
-        -function Competition(events,type)
+        -function Competition(events)
             div(class="container text-center")
                 div(class="pad")
-                    h3(class="content")= type+"-Events"
+                    h3(class="content")= "Events"
                     div(class="row")
                         each r in events
                             div(class="col-sm-4")
@@ -19,7 +19,7 @@
                                         a(href="/event/"+r.Event_Name class="card-link")= "More Info"
 
         <div class="color">
-            -Competition(events,type)
+            -Competition(events)
         </div>  
 
         <script src="../vikiran.js"></script>

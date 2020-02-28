@@ -1,6 +1,21 @@
 const Joi= require('joi');
 const mongoose =require('mongoose');
 
+const Other_Members_Object= new mongoose.Schema({
+    1:{
+        type: String
+    },
+    2:{
+        type: String
+    },
+    3:{
+        type: String
+    },
+    4:{
+        type: String
+    }
+});
+
 const Register= mongoose.model('registrations', new mongoose.Schema({
     event_name:{
         type: String,
@@ -24,12 +39,14 @@ const Register= mongoose.model('registrations', new mongoose.Schema({
     },
     email: {
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
     contact:{
         type: String,
         required: true
+    },
+    Other_Members:{
+        type: Other_Members_Object
     },
     date: {
         type: Date,
@@ -45,6 +62,10 @@ function validateRegister(register){
         college_name: Joi.string().min(1).max(50).required(),
         email: Joi.string().min(5).max(255).required().email(),
         contact: Joi.string().required(),
+        member1: Joi.string(),
+        member2: Joi.string(),
+        member3: Joi.string(),
+        member4: Joi.string(),
         total_members: Joi.string().required()
     };
     return Joi.validate(register, schema);

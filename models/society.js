@@ -45,10 +45,6 @@ const Society= mongoose.model('event_info', new mongoose.Schema({
         type: String,
         required: true
     },
-    Competition_Type: {
-        type: String,
-        required: true
-    },
     Event_Date: {
         type: String,
         required: true
@@ -72,7 +68,6 @@ function validateSociety(society){
         c1: Joi.string().min(1).max(50).required(),
         c2: Joi.string().min(1).max(50).required(),
         venue: Joi.string().min(1).max(50).required(),
-        type: Joi.string().required(),
         date: Joi.string().required(),
         time: Joi.string().required()
     };

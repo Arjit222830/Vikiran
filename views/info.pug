@@ -10,22 +10,36 @@
                     h3(class="text-center content")= event
                 br
                 table(class="text-center content")
-                    col(width="400" height="1vh")
-                    col(width="400")
-                    col(width="400")
+                    col(width="240" height="1vh")
+                    col(width="240")
+                    col(width="240")
+                    col(width="240")
+                    col(width="240")
                     thead
                         tr
                             th="Team_Name"
                             th="Team_Leader"
                             th="Total Members in Group"
+                            th="Contact"
+                            th="Other_Members"
                     tbody
-                       
-                        each r in registers
+
+                        -r= Object.assign({}, registers)
+                        -for(var i=0;i<registers.length;i++)
                             tr
-                                td= r.team_name
-                                td= r.team_leader
-                                td= r.total_members
-        
+                                td= r[i].team_name
+                                td= r[i].team_leader
+                                td= r[i].total_members
+                                td= r[i].contact
+                                -if(r[i].Other_Members!= undefined)
+                                    -if(r[i].Other_Members['2']== undefined)
+                                        td= r[i].Other_Members['1']
+                                    -else if(r[i].Other_Members['3']== undefined)
+                                        td= r[i].Other_Members['1']+","+r[i].Other_Members['2']
+                                    -else if(r[i].Other_Members['4']== undefined)
+                                        td= r[i].Other_Members['1']+","+r[i].Other_Members['2']+","+r[i].Other_Members['3']
+                                    -else
+                                        td= r[i].Other_Members['1']+","+r[i].Other_Members['2']+","+r[i].Other_Members['3']+","+r[i].Other_Members['4']
     <script src="../vikiran.js"></script>
 
     </body>

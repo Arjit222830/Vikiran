@@ -24,7 +24,6 @@ router.post('/',async (req,res)=>{
         Co_ordinator1: req.body.c1,
         Co_ordinator2: req.body.c2,
         Venue: req.body.venue,
-        Competition_Type: req.body.type,
         Event_Date: req.body.date,
         Event_Time: req.body.time
     });

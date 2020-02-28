@@ -3,31 +3,38 @@
     include header.pug
     
     <body>
-    div(class="color")
+
         -var html_names=['Team Name', 'Team Leader','College Name','E-Mail','Contact No.'];
         -var names= ['team_name','team_leader','college_name','email','contact'];
         -var types= ['text','text','text','email','number'];
-        <div class="container">  
-        div(class="pad")
-            <h3 class="text-center top content">Registration</h3> 
-            <form class="contact-form" id="form_register">
 
-                label(for="numbers" style="margin-right:1.5vw")= "Total Members"
-                select(id="numbers")
-                    -for(var i=1;i<=20;i++)
-                        option(value=i)= i
-                br
-                -for(var i=1;i<=html_names.length;i++)
-                    label(for="data"+i style="margin-right:1.5vw")= html_names[i-1]
-                    input(type=types[i-1] placeholder=html_names[i-1] id="data"+i name=names)
-                    br
+        div(class="color")
+            div(class="container")  
+                div(class="pad")
+                    <h3 class="text-center top content">Registration</h3> 
+                    <form class="contact-form" id="form_register">
+                        -for(var i=1;i<=html_names.length;i++)
+                            label(for="data"+i style="margin-right:1.5vw")= html_names[i-1]
+                            input(type=types[i-1] placeholder=html_names[i-1] id="data"+i name=names[i-1])
+                            br
+                        br
+
+                        -if(eval(numbers)<=4 && eval(numbers)>1)
+                            div(class="text-left")
+                                label(for="data"+i style="margin-right:1.5vw")= "Other Members:"
+                            br
+                            -for(var i=6;i<(eval(numbers)+5);i++)
+                                label(for="data"+i style="margin-right:1.5vw")= "Member"+(i-5)
+                                input(type="text" placeholder="Member"+(i-5) id="data"+i value=" " name="member"+(i-5))
+                                br
                 
-                <button class="btn" id="sub" type="submit">submit</button>
-            </form>
-        </div>  
+                        <button class="btn" id="sub" type="submit">submit</button>
+                    </form>
 
         script.
+            var total= '!{numbers}';
             var event= '!{Event}';
+
 
         <script src="../vikiran.js"></script>
     </body>

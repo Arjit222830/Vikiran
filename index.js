@@ -27,7 +27,8 @@ require('./prod.js')(app);
 app.set("view engine", "pug");
 
 app.get('/',async function(req,res){
-    res.status(200).render('index');
+    let events= await Society.find();
+    res.status(200).render('competition',{events:events});
 });
 
 app.get('/admin',async function(req,res){
@@ -44,15 +45,12 @@ app.get('/details/:event',async function(req,res){
     res.status(200).render('info',{registers: registers,event: req.params.event});
 });
 
-app.get('/competition/:type',async function(req,res){
-    const events= await Society.find({Competition_Type:req.params.type});
-    res.status(200).render('competition',{events:events,type: req.params.type});
-});
-
 app.get('/event/:item',async function(req,res){
     let event= await Society.find({Event_Name: req.params.item});
     res.status(200).render('event',{event:Object.assign({}, event)[0]});
 });
+
+
 
 const port=process.env.PORT || 3000;
 console.log(port);
