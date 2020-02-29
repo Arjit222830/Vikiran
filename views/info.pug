@@ -10,20 +10,21 @@
                     h3(class="text-center content")= event
                 br
                 table(class="text-center content")
-                    col(width="200" height="1vh")
-                    col(width="200")
-                    col(width="200")
-                    col(width="200")
-                    col(width="200")
-                    col(width="200")
+                    col(width="171" height="1vh")
+                    col(width="171")
+                    col(width="171")
+                    col(width="171")
+                    col(width="171")
+                    col(width="171")
                     thead
                         tr
-                            th="Team_Name"
-                            th="Team_Leader"
+                            th="Team Name"
+                            th="Team Leader"
+                            th="Enrollment No."
                             th="Total Members in Group"
                             th="Contact"
                             th="Transaction Id"
-                            th="Other_Members"
+                            th="Other Members"
                     tbody
 
                         -r= Object.assign({}, registers)
@@ -31,6 +32,7 @@
                             tr
                                 td= r[i].team_name
                                 td= r[i].team_leader
+                                td= r[i].enroll_no
                                 td= r[i].total_members
                                 td= r[i].contact
                                 td= r[i].transaction

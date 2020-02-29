@@ -4,21 +4,28 @@
     
     <body>
     div(class="color")
-        -var html_names=['Society Name','Event Name','About','Rule 1','Rule 2','Rule 3','Rule 4','Co-ordinator 1','Co-ordinator 2','Venue','Maximum Participants','Date','Time'];
-        -var types=['text','text','textarea','text','text','text','text','text','text','text','number', 'date','time'];
-        -var names=['society','event','about','r1','r2','r3','r4','c1','c2','venue','max_mem','date','time'];
+        -var html_names=['Society Name','Event Name','About','Rule 1','Rule 2','Rule 3','Rule 4','Co-ordinator 1','Co-ordinator 2','Venue','Event Fee','Maximum Participants','Date','Time'];
+        -var types=['text','text','textarea','text','text','text','text','text','text','text','radio','number', 'date','time'];
+        -var names=['society','event','about','r1','r2','r3','r4','c1','c2','venue','fee','max_mem','date','time'];
+        -var payment= ['100','200','300','500'];
         -var i=0;
   
         <div class="container">
         div(class="pad")
             h3(class="text-center content")= "Vikiran Society Registration"
             br
-            <form class="contact-form" id="form_admin">
+            <form class="contact-form" id="form_admin">₹
                 for r in html_names
                     label(for="text-center data"+(i+1))=r
                     br
                     -if(types[i]=='textarea')
                         textarea(type=types[i-1] placeholder="Write about event" id="data"+(i+1) name=names[i++])
+                    -else if(types[i]=='radio')
+                        each r in payment
+                            input( type=types[i]  id="data"+(i+1) name=names[i] value=r)
+                            label= "₹"+r
+                        -i++;
+                        br
                     -else if(types[i]=='number')
                         select(id="data"+((i++)+1) style="width:100px")
                             -for(var j=1;j<=20;j++)

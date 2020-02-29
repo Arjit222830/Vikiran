@@ -30,6 +30,7 @@ router.post('/:Event',async (req,res)=>{
         event_name: req.params.Event,
         team_name: req.body.team_name,
         team_leader: req.body.team_leader,
+        enroll_no: req.body.enroll_no,
         total_members: req.body.total_members,
 		college_name: req.body.college_name,
         email: req.body.email,

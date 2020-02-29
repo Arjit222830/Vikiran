@@ -19,9 +19,10 @@ $(document).ready(()=>{
                 c1: $('#data8').val(),
                 c2: $('#data9').val(),
                 venue: $('#data10').val(),
-                max_mem: $('#data11').val(),
-                date:$("#data12").val(),
-                time:$("#data13").val()
+                fee: $('#data11:checked').val(),
+                max_mem: $('#data12').val(),
+                date:$("#data13").val(),
+                time:$("#data14").val()
             },
             method: "POST",
             success : function(data){
@@ -45,15 +46,16 @@ $(document).ready(()=>{
             data :{
                 team_name: $('#data1').val(),
                 team_leader: $('#data2').val(),
+                enroll_no: $('#data3').val(),
                 total_members: total,
-                college_name: $('#data3').val(),
-                email: $('#data4').val(),
-                contact: $('#data5').val(),
-                member1: $('#data6').val(),
-                member2: $('#data7').val(),
-                member3: $('#data8').val(),
-                member4:  $('#data9').val(),
-                transaction: $('#data10').val()
+                college_name: $('#data4').val(),
+                email: $('#data5').val(),
+                contact: $('#data6').val(),
+                member1: $('#data7').val(),
+                member2: $('#data8').val(),
+                member3: $('#data9').val(),
+                member4:  $('#data10').val(),
+                transaction: $('#data11').val()
             },
             method: "POST",
             success : function(data){

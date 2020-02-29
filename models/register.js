@@ -29,6 +29,10 @@ const Register= mongoose.model('registrations', new mongoose.Schema({
         type: String,
         required: true
     },
+    enroll_no: {
+        type: String,
+        required: true
+    },
     total_members:{
         type: String,
         required: true
@@ -63,6 +67,7 @@ function validateRegister(register){
     const schema= {
         team_name: Joi.string().min(1).max(50).required(),
         team_leader: Joi.string().min(1).max(50).required(),
+        enroll_no: Joi.string().required(),
         total_members: Joi.string().required(),
         college_name: Joi.string().min(1).max(50).required(),
         email: Joi.string().min(5).max(255).required().email(),

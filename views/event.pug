@@ -4,8 +4,8 @@
     
     <body>
      div(class="color")
-        -var key=['Event Name', 'About','Co-ordinators','Venue','Maximum Participants','Date','Timing'];
-        -var value=[event.Event_Name, event.About,[event.Co_ordinator1,event.Co_ordinator2],event.Venue,event.Maximum_Members,event.Event_Date,event.Event_Time]
+        -var key=['Event Name', 'About','Co-ordinators','Venue','Maximum Participants','Event Fee','Date','Timing'];
+        -var value=[event.Event_Name, event.About,[event.Co_ordinator1,event.Co_ordinator2],event.Venue,event.Maximum_Members,"₹"+event.Fee,event.Event_Date,event.Event_Time]
         <div class="container">
         div(class="pad")
             h3(class="text-center content")= event.Society_Name
@@ -52,7 +52,7 @@
                                     <span aria-hidden="true">&times;</span>
                             div(class="modal-body")
                                 
-                                <div class="registration_rules">
+                                div(class="registration_rules")
                                     <ul style="color:black">
                                         <li> Registration is a two step process </li>
                                         <li> First, pay the amount(UPI) by following link given below.  </li>
@@ -61,24 +61,20 @@
                                         br
                                         <h6 style="font-size:10px">[Note: Registration would be consider incomplete if second step is not followed]
                                     </ul>
-                                </div>
+                                hr
 
                                 <div class="text-center" id="payment">
                                         -/* Javascript */
                                 </div>
-                                
-                            div(class="modal-footer")
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Go Back</button>
-                                <button type="submit" class="btn btn-primary">Proceed</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        </div>   
+                                hr
+
+                            div(class="text-center")
+                                <button type="submit" style="width:150px" class="btn btn-primary">Step 2:Register</button> 
 
         script.
             var ev= '!{event.Event_Name}';
             var max_mem= '!{event.Maximum_Members}';
+            var fee= !{event.Fee}.00
 
             var payment= document.getElementById('payment');
 
@@ -92,7 +88,7 @@
                     var anchor= document.createElement('a');
                     var h5= document.createElement('h5').appendChild(document.createTextNode('Pay Here'));
                     anchor.appendChild(h5);
-                    anchor.setAttribute('href','upi://pay?pa=8178186351@upi&pn=Mr ANKIT  KUMAR&am=100.00&cu=INR&mode=02&purpose=00&tn=&orgid=189999&sign=MEQCIC9sZz7MVX0zpoxOJeWKPi4t22xnfOeFfM6nCfGqbX0SAiA2xp4hkyw8bu/Mg+lBP/1nl06hrihpdphfXIVkf6bu3Q==');
+                    anchor.setAttribute('href','upi://pay?pa=8178186351@upi&pn=Mr ANKIT  KUMAR&am=!{event.Fee}.00&cu=INR&mode=02&purpose=00&tn=&orgid=189999&sign=MEQCIC9sZz7MVX0zpoxOJeWKPi4t22xnfOeFfM6nCfGqbX0SAiA2xp4hkyw8bu/Mg+lBP/1nl06hrihpdphfXIVkf6bu3Q==');
                     anchor.setAttribute('target','_blank');
                     payment.appendChild(anchor);
                 }
@@ -100,11 +96,11 @@
                 {
                     if(flag++==0){
                         var image = document.createElement('img');
-                        image.setAttribute('src', '../QR.jpg');
+                        image.setAttribute('src', "../QR-"+'!{event.Fee}'+'.jpg');
                         image.setAttribute('style', 'width:30vh');
                         var h5= document.createElement('h5')
                         h5.setAttribute('style', 'color:black');
-                        h5.appendChild(document.createTextNode('Scan for payment'));
+                        h5.appendChild(document.createTextNode('Step:1 Scan for payment'));
                         payment.appendChild(h5);
                         payment.appendChild(document.createElement('br'));
                         payment.appendChild(image);
