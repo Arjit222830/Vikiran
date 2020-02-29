@@ -28,13 +28,13 @@
                                 input(type="text" placeholder="Member"+(i-5) id="data"+i value=" " name="member"+(i-5))
                                 br
                         -else if(eval(numbers)>4)
-                            label(for="data"+i style="margin-right:1.5vw")= "Total Members"
+                            label(for="data"+i style="margin-right:1.5vw")= "Total Members:"
                             select(id="sel" style="width:100px")
-                               -for(var j=1;j<=20;j++)
+                               -for(var j=1;j<=eval(numbers);j++)
                                     option(value=j)= j
                         <br><br>
 
-                        label(for="data10")= "Transcation ID:-"
+                        label(for="data10")= "Transcation ID"
                         input(type="text" placeholder="Transaction No." id="data10" name="transaction")
 
                         <br>

@@ -39,7 +39,7 @@ $(document).ready(()=>{
     $("#form_register").submit( (e)=>{
         e.preventDefault();
         if(eval(total)>4)
-            total= $('#sel').val(),
+            total= $('#sel').val();
         $.ajax({
             url: '/register/'+event,
             data :{
