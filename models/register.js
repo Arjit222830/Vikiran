@@ -48,6 +48,10 @@ const Register= mongoose.model('registrations', new mongoose.Schema({
     Other_Members:{
         type: Other_Members_Object
     },
+    transaction:{
+        type: String,
+        required: true
+    },
     date: {
         type: Date,
         default: Date.now
@@ -59,6 +63,7 @@ function validateRegister(register){
     const schema= {
         team_name: Joi.string().min(1).max(50).required(),
         team_leader: Joi.string().min(1).max(50).required(),
+        total_members: Joi.string().required(),
         college_name: Joi.string().min(1).max(50).required(),
         email: Joi.string().min(5).max(255).required().email(),
         contact: Joi.string().required(),
@@ -66,7 +71,7 @@ function validateRegister(register){
         member2: Joi.string(),
         member3: Joi.string(),
         member4: Joi.string(),
-        total_members: Joi.string().required()
+        transaction: Joi.string().required()
     };
     return Joi.validate(register, schema);
 }

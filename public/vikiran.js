@@ -1,3 +1,4 @@
+
 $('#myModal').on('shown.bs.modal', function () {
     $('#myInput').trigger('focus')
   })
@@ -49,6 +50,7 @@ $(document).ready(()=>{
                 member2: $('#data7').val(),
                 member3: $('#data8').val(),
                 member4:  $('#data9').val(),
+                transaction: $('#data10').val()
             },
             method: "POST",
             success : function(data){
@@ -65,7 +67,7 @@ $(document).ready(()=>{
 $(document).ready(()=>{
     $("#form_members").submit( (e)=>{
         e.preventDefault();
-        console.log("h")
+        console.log("h");
         $.ajax({
             url: '/register/'+ev+"-"+$('#numbers').val(),
             method: "POST",

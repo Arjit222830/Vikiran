@@ -34,7 +34,8 @@ router.post('/:Event',async (req,res)=>{
             2: req.body.member2,
             3: req.body.member3,
             4: req.body.member4
-        }
+        },
+        transaction: req.body.transaction
     });
     
     await register.save();

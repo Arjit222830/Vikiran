@@ -27,14 +27,18 @@
                                 label(for="data"+i style="margin-right:1.5vw")= "Member"+(i-5)
                                 input(type="text" placeholder="Member"+(i-5) id="data"+i value=" " name="member"+(i-5))
                                 br
+
+                        label(for="data10")= "Transcation ID:-"
+                        input(type="text" placeholder="Transaction No." id="data10" name="transaction")
+
+                        <br>
                 
-                        <button class="btn" id="sub" type="submit">submit</button>
+                        <button class="btn" id="sub" type="submit">Submit</button>
                     </form>
 
         script.
             var total= '!{numbers}';
             var event= '!{Event}';
-
 
         <script src="../vikiran.js"></script>
     </body>

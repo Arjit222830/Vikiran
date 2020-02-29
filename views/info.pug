@@ -10,17 +10,19 @@
                     h3(class="text-center content")= event
                 br
                 table(class="text-center content")
-                    col(width="240" height="1vh")
-                    col(width="240")
-                    col(width="240")
-                    col(width="240")
-                    col(width="240")
+                    col(width="200" height="1vh")
+                    col(width="200")
+                    col(width="200")
+                    col(width="200")
+                    col(width="200")
+                    col(width="200")
                     thead
                         tr
                             th="Team_Name"
                             th="Team_Leader"
                             th="Total Members in Group"
                             th="Contact"
+                            th="Transaction Id"
                             th="Other_Members"
                     tbody
 
@@ -31,6 +33,7 @@
                                 td= r[i].team_leader
                                 td= r[i].total_members
                                 td= r[i].contact
+                                td= r[i].transaction
                                 -if(r[i].Other_Members!= undefined)
                                     -if(r[i].Other_Members['2']== undefined)
                                         td= r[i].Other_Members['1']

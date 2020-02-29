@@ -43,23 +43,27 @@
             button(type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal")= "Register"
 
             form(id="form_members")
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Registration</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                div(class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
+                    div(class="modal-dialog" role="document")
+                        div(class="modal-content")
+                            div(class="modal-header")
+                                h5(class="modal-title" id="exampleModalLabel")= "Registration"
+                                button(type="button" class="close" data-dismiss="modal" aria-label="Close")
                                     <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
+                            div(class="modal-body")
                                 label(for="numbers" style="margin-right:1.5vw")= "Total Members"
                                 select(id="numbers")
                                     -for(var i=1;i<=20;i++)
                                         option(value=i)= i
                                     br
-                            </div>
-                            <div class="modal-footer">
+                                <hr>
+                               
+                              
+                                <div class="text-center" id="payment">
+                                        -/* Javascript */
+                                </div>
+                                
+                            div(class="modal-footer")
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
@@ -70,6 +74,37 @@
 
         script.
             var ev= '!{event.Event_Name}';
+            var payment= document.getElementById('payment');
+
+            var flag=0;
+
+            resize();
+
+            function resize(){
+                if(window.innerWidth<550)
+                {
+                    var anchor= document.createElement('a');
+                    var h5= document.createElement('h5').appendChild(document.createTextNode('Pay Here'));
+                    anchor.appendChild(h5);
+                    anchor.setAttribute('href','upi://pay?pa=8178186351@upi&pn=Mr ANKIT  KUMAR&am=100.00&cu=INR&mode=02&purpose=00&tn=&orgid=189999&sign=MEQCIC9sZz7MVX0zpoxOJeWKPi4t22xnfOeFfM6nCfGqbX0SAiA2xp4hkyw8bu/Mg+lBP/1nl06hrihpdphfXIVkf6bu3Q==');
+                    anchor.setAttribute('target','_blank');
+                    payment.appendChild(anchor);
+                }
+                else
+                {
+                    if(flag++==0){
+                        var image = document.createElement('img');
+                        image.setAttribute('src', '../QR.jpg');
+                        image.setAttribute('style', 'width:30vh');
+                        var h5= document.createElement('h5')
+                        h5.setAttribute('style', 'color:black');
+                        h5.appendChild(document.createTextNode('Scan for payment'));
+                        payment.appendChild(h5);
+                        payment.appendChild(document.createElement('br'));
+                        payment.appendChild(image);
+                    }
+                }
+            }
 
         <script src="../vikiran.js"></script></body>
 </html>
