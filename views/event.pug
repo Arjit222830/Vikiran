@@ -4,12 +4,15 @@
     
     <body>
      div(class="color")
-        -var key=['Event Name', 'About','Co-ordinators','Venue','Maximum Participants','Event Fee','Date','Timing'];
-        -var value=[event.Event_Name, event.About,[event.Co_ordinator1,event.Co_ordinator2],event.Venue,event.Maximum_Members,"₹"+event.Fee,event.Event_Date,event.Event_Time]
+        -var key=['Event Name', 'Co-ordinators','Venue','Maximum Participants','Event Fee','Date','Timing'];
+        -var value=[event.Event_Name, [event.Co_ordinator1,event.Co_ordinator2],event.Venue,event.Maximum_Members,"₹"+event.Fee,event.Event_Date,event.Event_Time]
         
         <div class="container">
         div(class="pad")
             h3(class="text-center content")= event.Society_Name
+            div(class="content")
+                h3(class="text-center")= "About"
+                h4(class="text-center")= event.About
             <br><br>
             <table class="text-center content">
                 <col width="600vw" height="1vh">
@@ -24,7 +27,7 @@
                     -for(var i=0;i<key.length;i++)
                         <tr>
                             td= key[i]
-                            -if(i!=2)
+                            -if(i!=1)
                                 td= value[i]
                             -else
                                 td=value[i][0]+"  &  "+value[i][1]
