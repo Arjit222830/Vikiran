@@ -46,7 +46,7 @@ router.post('/:Event',async (req,res)=>{
     
     await register.save();
 
-    res.send({message:'Registeration Successful',link:'/'});
+    res.send({message:'Registration Successful.. Your Transaction Id will be cross-examined.. Any kind of forgery will result in disqualification..',link:'/'});
 });
 
 module.exports= router;

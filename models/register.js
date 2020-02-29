@@ -71,7 +71,7 @@ function validateRegister(register){
         total_members: Joi.string().required(),
         college_name: Joi.string().min(1).max(50).required(),
         email: Joi.string().min(5).max(255).required().email(),
-        contact: Joi.string().required(),
+        contact: Joi.string().length(10).required(),
         member1: Joi.string(),
         member2: Joi.string(),
         member3: Joi.string(),

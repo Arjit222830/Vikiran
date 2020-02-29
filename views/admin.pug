@@ -14,7 +14,7 @@
         div(class="pad")
             h3(class="text-center content")= "Vikiran Society Registration"
             br
-            <form class="contact-form" id="form_admin">₹
+            <form class="contact-form" id="form_admin">
                 for r in html_names
                     label(for="text-center data"+(i+1))=r
                     br
@@ -22,8 +22,8 @@
                         textarea(type=types[i-1] placeholder="Write about event" id="data"+(i+1) name=names[i++])
                     -else if(types[i]=='radio')
                         each r in payment
-                            input( type=types[i]  id="data"+(i+1) name=names[i] value=r)
                             label= "₹"+r
+                            input( type=types[i]  id="data"+(i+1) name=names[i] value=r)
                         -i++;
                         br
                     -else if(types[i]=='number')

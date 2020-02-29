@@ -60,6 +60,10 @@ const Society= mongoose.model('event_info', new mongoose.Schema({
     Event_Time: {
         type: String,
         required: true
+    },
+    Image_Url: {
+        type: String,
+        required: true
     }
 })
 );

@@ -11,8 +11,8 @@
         div(class="color")
             div(class="container")  
                 div(class="pad")
-                    <h3 class="text-center top content">Registration</h3> 
-                    <form class="contact-form" id="form_register">
+                    h3(class="text-center top content")= "Registration"
+                    form(class="contact-form" id="form_register")
                         -for(var i=1;i<=html_names.length;i++)
                             label(for="data"+i style="margin-right:1.5vw")= html_names[i-1]
                             input(type=types[i-1] placeholder=html_names[i-1] id="data"+i name=names[i-1])
@@ -34,13 +34,13 @@
                                     option(value=j)= j
                         <br><br>
 
-                        label(for="data11")= "Transcation ID"
+                        label(for="data11")= "Transaction ID"
                         input(type="text" placeholder="Transaction No." id="data11" name="transaction")
 
                         <br>
                 
                         <button class="btn" id="sub" type="submit">Submit</button>
-                    </form>
+
 
         script.
             var total= '!{numbers}';
