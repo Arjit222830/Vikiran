@@ -19,8 +19,9 @@ $(document).ready(()=>{
                 c1: $('#data8').val(),
                 c2: $('#data9').val(),
                 venue: $('#data10').val(),
-                date:$("#data11").val(),
-                time:$("#data12").val()
+                max_mem: $('#data11').val(),
+                date:$("#data12").val(),
+                time:$("#data13").val()
             },
             method: "POST",
             success : function(data){
@@ -37,6 +38,8 @@ $(document).ready(()=>{
 $(document).ready(()=>{
     $("#form_register").submit( (e)=>{
         e.preventDefault();
+        if(eval(total)>4)
+            total= $('#sel').val(),
         $.ajax({
             url: '/register/'+event,
             data :{
@@ -69,7 +72,7 @@ $(document).ready(()=>{
         e.preventDefault();
         console.log("h");
         $.ajax({
-            url: '/register/'+ev+"-"+$('#numbers').val(),
+            url: '/register/'+ev+"-"+max_mem,
             method: "POST",
             success : function(data){
                 window.location.replace(data.link);

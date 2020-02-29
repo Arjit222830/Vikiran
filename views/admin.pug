@@ -4,9 +4,9 @@
     
     <body>
     div(class="color")
-        -var html_names=['Society Name','Event Name','About','Rule 1','Rule 2','Rule 3','Rule 4','Co-ordinator 1','Co-ordinator 2','Venue','Date','Time'];
-        -var types=['text','text','textarea','text','text','text','text','text','text','text', 'date','time'];
-        -var names=['society','event','about','r1','r2','r3','r4','c1','c2','venue','date','time'];
+        -var html_names=['Society Name','Event Name','About','Rule 1','Rule 2','Rule 3','Rule 4','Co-ordinator 1','Co-ordinator 2','Venue','Maximum Participants','Date','Time'];
+        -var types=['text','text','textarea','text','text','text','text','text','text','text','number', 'date','time'];
+        -var names=['society','event','about','r1','r2','r3','r4','c1','c2','venue','max_mem','date','time'];
         -var i=0;
   
         <div class="container">
@@ -19,8 +19,14 @@
                     br
                     -if(types[i]=='textarea')
                         textarea(type=types[i-1] placeholder="Write about event" id="data"+(i+1) name=names[i++])
+                    -else if(types[i]=='number')
+                        select(id="data"+((i++)+1) style="width:100px")
+                            -for(var j=1;j<=20;j++)
+                                option(value=j)= j
+                        br
                     -else
                        input( type=types[i] placeholder=r id="data"+(i+1) name=names[i++])
+                               
                     br
         
                 <button class="btn" id="sub" type="submit">submit</button>

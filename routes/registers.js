@@ -20,6 +20,11 @@ router.post('/:Event',async (req,res)=>{
 
     if(user)
         return res.status(400).send('User already registered..');
+
+    let transaction= await Register.findOne({ transaction: req.body.transaction});
+
+    if(transaction)
+        return res.status(400).send('Transaction Id Already Registered..');
     
     const register= new Register({
         event_name: req.params.Event,

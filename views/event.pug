@@ -4,8 +4,8 @@
     
     <body>
      div(class="color")
-        -var key=['Event Name', 'About','Co-ordinators','Venue','Date','Timing'];
-        -var value=[event.Event_Name, event.About,[event.Co_ordinator1,event.Co_ordinator2],event.Venue,event.Event_Date,event.Event_Time]
+        -var key=['Event Name', 'About','Co-ordinators','Venue','Maximum Participants','Date','Timing'];
+        -var value=[event.Event_Name, event.About,[event.Co_ordinator1,event.Co_ordinator2],event.Venue,event.Maximum_Members,event.Event_Date,event.Event_Time]
         <div class="container">
         div(class="pad")
             h3(class="text-center content")= event.Society_Name
@@ -51,21 +51,25 @@
                                 button(type="button" class="close" data-dismiss="modal" aria-label="Close")
                                     <span aria-hidden="true">&times;</span>
                             div(class="modal-body")
-                                label(for="numbers" style="margin-right:1.5vw")= "Total Members"
-                                select(id="numbers")
-                                    -for(var i=1;i<=20;i++)
-                                        option(value=i)= i
-                                    br
-                                <hr>
-                               
-                              
+                                
+                                <div class="registration_rules">
+                                    <ul style="color:black">
+                                        <li> Registration is a two step process </li>
+                                        <li> First, pay the amount(UPI) by following link given below.  </li>
+                                        <li> The Transaction Id of the payment would be used to verify the payment </li>
+                                        <li> Second, Click on Proceed to fill transaction id and details of participants. </li>
+                                        br
+                                        <h6 style="font-size:10px">[Note: Registration would be consider incomplete if second step is not followed]
+                                    </ul>
+                                </div>
+
                                 <div class="text-center" id="payment">
                                         -/* Javascript */
                                 </div>
                                 
                             div(class="modal-footer")
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Go Back</button>
+                                <button type="submit" class="btn btn-primary">Proceed</button>
                             </div>
                         </div>
                     </div>
@@ -74,6 +78,8 @@
 
         script.
             var ev= '!{event.Event_Name}';
+            var max_mem= '!{event.Maximum_Members}';
+
             var payment= document.getElementById('payment');
 
             var flag=0;
