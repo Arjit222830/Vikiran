@@ -103,7 +103,7 @@ input{
   .card1 {
     display: grid;
     grid-template-columns: 300px;
-    grid-template-rows: 210px 110px 80px;
+    grid-template-rows: 200px 90px 80px;
     grid-template-areas: "image" "text";
     border-radius: 18px;
     background: white;
@@ -121,7 +121,6 @@ input{
 
   .card-image {
     grid-area: image;
-    background: url("people-having-a-concert-1190297.jpg");
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-size: cover;
