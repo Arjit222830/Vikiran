@@ -23,7 +23,7 @@
                             div(class="text-left")
                                 label(for="other_members" style="margin-right:1.5vw")= "Other Members:"
                             br
-                            -for(var i=7;i<=10;i++)
+                            -for(var i=7;i<eval(numbers)+6;i++)
                                 label(for="data"+i style="margin-right:1.5vw")= "Member"+(i-6)
                                 input(type="text" placeholder="Member"+(i-6) id="data"+i value=" " name="member"+(i-6))
                                 br
