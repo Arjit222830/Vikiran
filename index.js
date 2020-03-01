@@ -27,10 +27,6 @@ require('./prod.js')(app);
 app.set("view engine", "pug");
 
 app.get('/',async function(req,res){
-    res.sendFile('./public/index.html',{root:__dirname});
-});
-
-app.get('/event_cards',async function(req,res){
     let events= await Society.find();
     res.status(200).render('competition',{events:events});
 });
