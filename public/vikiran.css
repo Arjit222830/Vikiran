@@ -1,17 +1,35 @@
-@import url('https://fonts.googleapis.com/css?family=Oxanium|Trade+Winds&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Trade+Winds|Ubuntu|Varela+Round&display=swap');
 
-body{
+.back{
     background: url("bg.jpg");
     background-repeat: repeat;
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    height: 145vh;
+}
+body{
+  background: url("bg.jpg");
+  background-repeat: repeat;
+  background-size: cover;
+  background-position: center;
+  height: 145vh;
 }
 
 .color{
     background-color: rgba(39,62,84,0.7);
-    height: 250vh;
+    background-repeat: repeat;
+    height: 145vh;
 }
+
+@media(max-width:300px){
+  
+  .color{
+    background-color: rgba(39,62,84,0.7);
+    background-repeat: repeat;
+}
+
+}
+
 .pad{
     padding-top: 10px;
 }
@@ -23,7 +41,7 @@ body{
     color: #c5ecfd;
     border-radius: 2vh;
     letter-spacing: 0.2vh;
-    font-family: 'PT Sans', sans-serif;
+    font-family: 'Oxanium', sans-serif;
 }
 
 .content1{
@@ -36,13 +54,8 @@ body{
     font-family: 'Trade Winds', sans-serif;
 }
 .btn{
-    border-radius: 0px;
     color:white !important;
-    background-color: #f12635 !important;
-    height: 5vh;
-    width: 15vh;
-    border-radius: 2vh;
-    margin-bottom: 15px;
+    width: 15vh
 }
 
 
@@ -123,12 +136,20 @@ input{
     
   }
 
-  .card-text {  
+  .card-text h4 {  
     grid-area: text;
     margin: 25px;
     color: #000;
-    font-family: 'Oxanium', sans-serif ;
+    font-family: 'Varela Round', sans-serif;
   }
+
+  .card-text h3 {  
+    grid-area: text;
+    margin: 25px;
+    color: #000;
+    font-family: 'Ubuntu', sans-serif;
+  }
+
   .card-text .date {
     color: rgb(255, 7, 110);
     font-size:13px !important;
@@ -138,10 +159,7 @@ input{
     font-size:15px;
     font-weight: 300;
   }
-  .card-text h2 {
-    margin-top:0px;
-    font-size:28px;
-  }
+ 
 
   .card-stats {
     grid-area: stats; 
@@ -170,4 +188,13 @@ input{
     transition: 0.5s ease;
     cursor: pointer;
     margin:30px;
+  }
+
+  .heading{
+    font-size: 20px;
+    font-family: 'Oxanium', sans-serif;
+  }
+
+  .eventable{
+    font-family: 'Varela Round', sans-serif;
   }
