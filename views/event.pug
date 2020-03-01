@@ -97,7 +97,7 @@
         script.
             var ev= '!{event.Event_Name}';
             var max_mem= '!{event.Maximum_Members}';
-            var fee= !{event.Fee}.00
+            var fee= !{event.Fee}
 
             var payment= document.getElementById('payment');
 
@@ -109,8 +109,14 @@
                 if(window.innerWidth<550)
                 {
                     var anchor= document.createElement('a');
-                    var h5= document.createElement('h5').appendChild(document.createTextNode('Pay Here'));
-                    anchor.appendChild(h5);
+                    var h5= document.createElement('h5')
+                    h5.setAttribute('style', 'color:black');
+                    h5.appendChild(document.createTextNode('Step:1 Click on Pay Here for payment'));
+                    payment.appendChild(h5);
+                    var h5_1= document.createElement('h5').appendChild(document.createTextNode('Pay Here'));
+                    payment.appendChild(h5);
+                    payment.appendChild(document.createElement('br'));
+                    anchor.appendChild(h5_1);
                     anchor.setAttribute('href','upi://pay?pa=8178186351@upi&pn=Mr ANKIT  KUMAR&am=!{event.Fee}.00&cu=INR&mode=02&purpose=00&tn=&orgid=189999&sign=MEQCIC9sZz7MVX0zpoxOJeWKPi4t22xnfOeFfM6nCfGqbX0SAiA2xp4hkyw8bu/Mg+lBP/1nl06hrihpdphfXIVkf6bu3Q==');
                     anchor.setAttribute('target','_blank');
                     payment.appendChild(anchor);
