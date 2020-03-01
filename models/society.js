@@ -61,7 +61,7 @@ const Society= mongoose.model('event_info', new mongoose.Schema({
         type: String,
         required: true
     },
-    Image_Url: {
+    Poster_Url: {
         type: String,
         required: true
     }
@@ -72,16 +72,17 @@ function validateSociety(society){
     const schema= {
         society: Joi.string().min(1).max(50).required(),
         event: Joi.string().min(1).max(50).required(),
-        about: Joi.string().min(1).max(5000).required(),
-        r1: Joi.string().min(0).max(100),
-        r2: Joi.string().min(0).max(100),
-        r3: Joi.string().min(0).max(100),
-        r4: Joi.string().min(0).max(100),
+        about: Joi.string().min(1).max(10000).required(),
+        r1: Joi.string().min(0).max(2000),
+        r2: Joi.string().min(0).max(2000),
+        r3: Joi.string().min(0).max(2000),
+        r4: Joi.string().min(0).max(2000),
         c1: Joi.string().min(1).max(50).required(),
         c2: Joi.string().min(1).max(50).required(),
         venue: Joi.string().min(1).max(50).required(),
         fee: Joi.string().required(),
         max_mem: Joi.string().required(),
+        poster: Joi.string().required(),
         date: Joi.string().required(),
         time: Joi.string().required()
     };

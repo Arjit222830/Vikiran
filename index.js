@@ -31,7 +31,7 @@ app.get('/',async function(req,res){
     res.status(200).render('competition',{events:events});
 });
 
-app.get('/admin',async function(req,res){
+app.get('/123admin456',async function(req,res){
     res.status(200).render('admin');
 });
 

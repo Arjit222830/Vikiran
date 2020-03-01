@@ -28,7 +28,7 @@ router.post('/',async (req,res)=>{
         Maximum_Members: req.body.max_mem,
         Event_Date: req.body.date,
         Event_Time: req.body.time,
-        Image_Url: "../"+req.body.event+".jpg"
+        Poster_Url: "../"+req.body.poster+".jpg"
     });
     
     await society.save();

@@ -3,6 +3,7 @@
     include header.pug
     
     <body>
+    
 div(class="back")
     div(class="color")
         -var key=['Event Name', 'Co-ordinators','Venue','Maximum Participants','Event Fee','Date','Timing'];
@@ -40,7 +41,7 @@ div(class="back")
                     -for(var i=0;i<key.length;i++)
                         <tr>
                             td= key[i]
-                            -if(i!=2)
+                            -if(i!=1)
                                 td= value[i]
                             -else
                                 td=value[i][0]+"  &  "+value[i][1]
@@ -78,7 +79,7 @@ div(class="back")
                                         <li> The Transaction Id of the payment would be used to verify the registration </li>
                                         <li> Second, Click on Step 2 button to fill your details and verify your transaction Id. </li>
                                         br
-                                        <h6 style="font-size:10px">[Note: Registration would be consider incomplete if second step is not followed]
+                                        <h6 style="font-size:10px">[Note: Registration would be consider incomplete if second step is not followed]</h6>
                                     </ul>
                                 hr
 

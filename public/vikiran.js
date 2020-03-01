@@ -21,8 +21,9 @@ $(document).ready(()=>{
                 venue: $('#data10').val(),
                 fee: $('#data11:checked').val(),
                 max_mem: $('#data12').val(),
-                date:$("#data13").val(),
-                time:$("#data14").val()
+                poster:$("#data13").val(),
+                date:$("#data14").val(),
+                time:$("#data15").val()
             },
             method: "POST",
             success : function(data){
