@@ -132,10 +132,6 @@ input{
     grid-area: stats; 
   }
 
-  .card-image {
-    
-  }
-
   .card-text h4 {  
     grid-area: text;
     margin: 25px;

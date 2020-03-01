@@ -16,6 +16,9 @@ router.post('/:Event',async (req,res)=>{
     if(error)
         return res.status(400).send(error.details[0].message);
 
+    if(req.body.transaction.length<10)
+        return res.status(400).send('Enter Valid Transaction ID');
+
     let user= await Register.findOne({ email: req.body.email, event_name: req.params.Event});
 
     if(user)
@@ -25,6 +28,7 @@ router.post('/:Event',async (req,res)=>{
 
     if(transaction)
         return res.status(400).send('Transaction Id Already Registered..');
+
     
     const register= new Register({
         event_name: req.params.Event,

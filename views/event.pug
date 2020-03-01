@@ -3,95 +3,97 @@
     include header.pug
     
     <body>
+
+        -var key=['Event Name', 'Co-ordinators','Venue','Maximum Participants','Event Fee','Prize Money','Date','Timing'];
+        -var value=[event.Event_Name, [event.Co_ordinator1,event.Co_ordinator2],event.Venue,event.Maximum_Members,"₹"+event.Fee,"₹"+event.Prize_Money,event.Event_Date,event.Event_Time]
     
-div(class="back")
-    div(class="color")
-        -var key=['Event Name', 'Co-ordinators','Venue','Maximum Participants','Event Fee','Date','Timing'];
-        -var value=[event.Event_Name, [event.Co_ordinator1,event.Co_ordinator2],event.Venue,event.Maximum_Members,"₹"+event.Fee,event.Event_Date,event.Event_Time]
-
-        <div class="container">
-        div(class="pad")
-            h3(class="text-center content")= event.Society_Name
-            <br>
+        div(class="back")
+            div(class="color")
+                div(class="container")
+                    div(class="pad")
+                        h2(class="text-center content1")= event.Society_Name
+                    <br>
                   
-            <table class="text-center table table-dark table-striped table-bordered">
-                <col width="600vw" height="1vh">
-                <col width="600vw">
-                <thead class="heading thead-dark">
-                    <tr>
-                        th= "About:-"
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="eventable">
-                        th= event.About
-                    </tr>
-                </tbody>
-                <br><br>
-            <table class="text-center table table-dark table-striped table-bordered">
-                <col width="600vw" height="1vh">
-                <col width="600vw"  >
-                <thead class="heading thead-light">
-                    <tr>
-                        th="Events:-"
-                        th="Details:-"
-                    </tr>
-                </thead>
-                <tbody class="eventable">
-                    -for(var i=0;i<key.length;i++)
+                    <table class="text-center table table-dark table-striped table-bordered">
+                    <col width="600vw" height="1vh">
+                    <col width="600vw">
+                    <thead class="heading thead-dark">
                         <tr>
-                            td= key[i]
-                            -if(i!=1)
-                                td= value[i]
-                            -else
-                                td=value[i][0]+"  &  "+value[i][1]
+                            th= "About:-"
                         </tr>
-                </tbody>
-            </table>
-            <br><br>
+                    </thead>
+                    <tbody>
+                        <tr class="eventable">
+                            th= event.About
+                        </tr>
+                    </tbody>
+                    <br><br>
 
-            <div class="card text-white bg-dark">
-            <h4 class="card-header text-dark bg-light text-center">Rules:-</h4>
-            <ul>
-                -for(var i=0;i<4;i++)
-                    -if(event.Rules[i+1]!=' ')    
-                        li= event.Rules[i+1]
-            </ul>   
-            </div> 
-            br
-            div(class="text-center")    
-                button(type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal")= "Register"
+                    <table class="text-center table table-dark table-striped table-bordered">
+                        <col width="600vw" height="1vh">
+                        <col width="600vw"  >
+                        <thead class="heading thead-light">
+                            <tr>
+                                th="Events:-"
+                                th="Details:-"
+                            </tr>
+                        </thead>
+                        <tbody class="eventable">
+                            -for(var i=0;i<key.length;i++)
+                                <tr>
+                                    td= key[i]
+                                    -if(i!=1)
+                                        td= value[i]
+                                    -else
+                                        td=value[i][0]+"  &  "+value[i][1]
+                                </tr>
+                        </tbody>
+                    </table>
+                    <br><br>
 
-            form(id="form_members")
-                div(class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
-                    div(class="modal-dialog" role="document")
-                        div(class="modal-content")
-                            div(class="modal-header")
-                                h5(class="modal-title" id="exampleModalLabel")= "Registration"
-                                button(type="button" class="close" data-dismiss="modal" aria-label="Close")
-                                    <span aria-hidden="true">&times;</span>
-                            div(class="modal-body")
-                                
-                                div(class="registration_rules")
-                                    <ul style="color:black">
-                                        <li> Registration is a two step process </li>
-                                        <li> First, pay the amount(UPI) by following the link given below.  </li>
-                                        <li> The Transaction Id of the payment would be used to verify the registration </li>
-                                        <li> Second, Click on Step 2 button to fill your details and verify your transaction Id. </li>
-                                        br
-                                        <h6 style="font-size:10px">[Note: Registration would be consider incomplete if second step is not followed]</h6>
-                                    </ul>
-                                hr
+                    <div class="card text-white bg-dark">
+                        <h4 class="card-header text-dark bg-light text-center">Rules:-</h4>
+                        <ul>
+                        -for(var i=0;i<4;i++)
+                            -if(event.Rules[i+1]!=' ')    
+                                li= event.Rules[i+1]
+                        </ul>   
+                    </div> 
+                    br
 
-                                <div class="text-center" id="payment">
-                                        -/* Javascript */
-                                </div>
-                                hr
+                    div(class="text-center")    
+                        button(type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal")= "Register"
 
-                            div(class="text-center")
-                                <button type="submit" style="width:150px" class="btn btn-primary">Step 2:Register</button> 
-                            
-</div>
+                    form(id="form_members")
+                        div(class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
+                            div(class="modal-dialog" role="document")
+                                div(class="modal-content")
+                                    div(class="modal-header")
+                                        h5(class="modal-title" id="exampleModalLabel")= "Registration"
+                                        button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                                            <span aria-hidden="true">&times;</span>
+
+                                    div(class="modal-body")
+                                        div(class="registration_rules")
+                                            <ul style="color:black">
+                                                <li> Registration is a two step process </li>
+                                                <li> First, pay the amount(UPI) by following the link given below.  </li>
+                                                <li> The Transaction Id of the payment would be used to verify the registration </li>
+                                                <li> Second, Click on Step 2 button to fill your details and verify your transaction Id. </li>
+                                                br
+                                                <h6 style="font-size:10px">[Note: Registration would be consider incomplete if second step is not followed]</h6>
+                                            </ul>
+                                        hr
+
+                                        <div class="text-center" id="payment">
+                                            -/* Javascript */
+                                        </div>
+                                        hr
+
+                                        div(class="text-center")
+                                            <button type="submit" style="width:150px" class="btn btn-primary">Step 2:Register</button>
+                                        hr 
+
         script.
             var ev= '!{event.Event_Name}';
             var max_mem= '!{event.Maximum_Members}';

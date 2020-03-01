@@ -20,10 +20,11 @@ $(document).ready(()=>{
                 c2: $('#data9').val(),
                 venue: $('#data10').val(),
                 fee: $('#data11:checked').val(),
-                max_mem: $('#data12').val(),
-                poster:$("#data13").val(),
-                date:$("#data14").val(),
-                time:$("#data15").val()
+                prize: $('#data12').val(),
+                max_mem: $('#data13').val(),
+                poster:$("#data14").val(),
+                date:$("#data15").val(),
+                time:$("#data16").val()
             },
             method: "POST",
             success : function(data){

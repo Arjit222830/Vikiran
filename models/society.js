@@ -49,6 +49,10 @@ const Society= mongoose.model('event_info', new mongoose.Schema({
         type: String,
         required: true
     },
+    Prize_Money: {
+        type: String,
+        required: true
+    },
     Maximum_Members: {
         type: String,
         required: true
@@ -81,6 +85,7 @@ function validateSociety(society){
         c2: Joi.string().min(1).max(50).required(),
         venue: Joi.string().min(1).max(50).required(),
         fee: Joi.string().required(),
+        prize: Joi.string().required(),
         max_mem: Joi.string().required(),
         poster: Joi.string().required(),
         date: Joi.string().required(),
