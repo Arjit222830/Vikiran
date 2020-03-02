@@ -5,7 +5,7 @@
     style. 
         @media(max-width:550px){
             .color{
-                height:1500vh!important
+                height:2000vh!important
             }
         }
 
@@ -15,7 +15,7 @@
             div(class="container")
                 div(class="pad text-center")
                     h3(class="content1")= "Events"
-                    div(class="row")
+                    div(class="row text-center")
                         each r in events                           
                                 br
                                 a(href="/event/"+r.Event_Name class="card1")
@@ -25,7 +25,7 @@
                                         h4= "Event : "+r.Event_Name
                                     </div>   
 
-        <div class="color" style="height:500vh;">
+        <div class="color" style="height:1000vh;">
             -Competition(events)
         </div>  
 
