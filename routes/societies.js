@@ -25,11 +25,11 @@ router.post('/',async (req,res)=>{
         Co_ordinator2: req.body.c2,
         Venue: req.body.venue,
         Fee: req.body.fee,
-        Prize_Money: req.body.prize,
+        Prize_Money: req.body.prize+" Max.",
         Maximum_Members: req.body.max_mem,
         Event_Date: req.body.date,
         Event_Time: req.body.time,
-        Poster_Url: "../"+req.body.poster+".jpg"
+        Poster_Url: "../posters/"+req.body.poster+".jpg"
     });
     
     await society.save();
