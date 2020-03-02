@@ -1,6 +1,14 @@
 <!DOCTTYPE html>
 <html>
-    include header.pug    
+    include header.pug  
+
+    style. 
+        @media(max-width:550px){
+            .color{
+                height:700vh!important
+            }
+        }
+
     <body>
 
         -function Competition(events)
@@ -15,8 +23,9 @@
                                     <div class="card-text"> 
                                         h3= "Society :"+r.Society_Name 
                                         h3= "Event : "+r.Event_Name
-                                    </div>            
-        <div class="color" style="height:500vh">
+                                    </div>   
+
+        <div class="color" style="height:300vh;">
             -Competition(events)
         </div>  
 
