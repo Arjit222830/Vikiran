@@ -1,0 +1,52 @@
+<!DOCTTYPE html>
+<html>
+    include header.pug
+    
+    <body>
+
+       div(class="color")
+            div(class="container")              
+                div(class="pad")
+                    h3(class="text-center content1")= "Registration Transaction Details"
+                br
+
+                div(style="overflow-x:auto")
+                    table(class="text-center content table table-dark table-striped table-bordered")
+                        col(width="10" height="1vh")
+                        col(width="170")
+                        col(width="170")
+                        col(width="170")
+                        col(width="170")
+                        col(width="170")
+                        col(width="170")
+                        col(width="170")
+                        thead(class="heading thead-light")
+                            tr
+                                th="S.No"
+                                th="Event Name"
+                                th="Team Name"
+                                th="Team Leader"
+                                th="College Name"
+                                th="Total Members in Group"
+                                th="Transaction Id"
+                                th="Contact"
+                               
+
+                            tbody(class="eventable")
+                                -r= Object.assign({}, registers)
+                                -for(var i=0;i<registers.length;i++)
+                                    tr
+                                        td= i+1
+                                        td= r[i].event_name
+                                        td= r[i].team_name
+                                        td= r[i].team_leader
+                                        td= r[i].college_name
+                                        td= r[i].total_members
+                                        td= r[i].transaction
+                                        td= r[i].contact
+                                       
+            
+    <script src="../vikiran.js"></script>
+
+    </body>
+</html>

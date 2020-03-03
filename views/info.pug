@@ -12,17 +12,22 @@
 
                 div(style="overflow-x:auto")
                     table(class="text-center content table table-dark table-striped table-bordered")
-                        col(width="171" height="1vh")
-                        col(width="171")
-                        col(width="171")
-                        col(width="171")
-                        col(width="171")
-                        col(width="171")
+                        col(width="10" height="1vh")
+                        col(width="160")
+                        col(width="160")
+                        col(width="160")
+                        col(width="160")
+                        col(width="160")
+                        col(width="160")
+                        col(width="160")
+                        col(width="160")
                         thead(class="heading thead-light")
                             tr
+                                th="S.No"
                                 th="Team Name"
                                 th="Team Leader"
                                 th="Enrollment No."
+                                th="College Name"
                                 th="Total Members in Group"
                                 th="Contact"
                                 th="Transaction Id"
@@ -32,9 +37,11 @@
                                 -r= Object.assign({}, registers)
                                 -for(var i=0;i<registers.length;i++)
                                     tr
+                                        td= i+1
                                         td= r[i].team_name
                                         td= r[i].team_leader
                                         td= r[i].enroll_no
+                                        td= r[i].college_name
                                         td= r[i].total_members
                                         td= r[i].contact
                                         td= r[i].transaction

@@ -50,6 +50,11 @@ app.get('/event/:item',async function(req,res){
     res.status(200).render('event',{event:Object.assign({}, event)[0]});
 });
 
+app.get('/sahil_malik',async function(req,res){
+    const registers= await Register.find();
+    res.status(200).render('event_management',{registers: registers});
+});
+
 
 
 const port=process.env.PORT || 3000;
