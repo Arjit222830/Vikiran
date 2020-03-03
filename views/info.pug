@@ -4,7 +4,7 @@
     
     <body>
 
-        -var head= ['S.No','Team Name','Team Leader','Enrollment No.','College Name','Total Members','Contact',"Other Members"];
+        -var head= ['S.No','Team Name','Team Leader','Enrollment No.','College Name','Total Members','Contact',"Other Members",'Date of Reg.'];
 
         div(class="color")
             div(class="container")              
@@ -48,6 +48,7 @@
                                                 td= r[i].Other_Members['1']+","+r[i].Other_Members['2']+","+r[i].Other_Members['3']
                                             -else
                                                 td= r[i].Other_Members['1']+","+r[i].Other_Members['2']+","+r[i].Other_Members['3']+","+r[i].Other_Members['4']
+                                        td= r[i].date.toString().substring(0,(r[i].date.toString().indexOf(':')-2))
             
     <script src="../vikiran.js"></script>
 
