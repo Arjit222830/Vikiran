@@ -4,10 +4,12 @@
     
     <body>
 
-       div(class="color")
+        -var head= ['S.No','Team Name','Team Leader','Enrollment No.','College Name','Total Members','Contact',"Other Members"];
+
+        div(class="color")
             div(class="container")              
                 div(class="pad")
-                    h3(class="text-center content")= event
+                    h3(class="text-center content1")= event
                 br
 
                 div(style="overflow-x:auto")
@@ -23,15 +25,8 @@
                         col(width="160")
                         thead(class="heading thead-light")
                             tr
-                                th="S.No"
-                                th="Team Name"
-                                th="Team Leader"
-                                th="Enrollment No."
-                                th="College Name"
-                                th="Total Members in Group"
-                                th="Contact"
-                                th="Transaction Id"
-                                th="Other Members"
+                                -for(var i=0;i<head.length;i++)
+                                    th= head[i]
 
                             tbody(class="eventable")
                                 -r= Object.assign({}, registers)
@@ -44,7 +39,6 @@
                                         td= r[i].college_name
                                         td= r[i].total_members
                                         td= r[i].contact
-                                        td= r[i].transaction
                                         -if(r[i].Other_Members!= undefined)
                                             -if(r[i].Other_Members['2']== undefined)
                                                 td= r[i].Other_Members['1']

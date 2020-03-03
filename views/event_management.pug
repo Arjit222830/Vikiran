@@ -4,7 +4,9 @@
     
     <body>
 
-       div(class="color")
+        -var head= ['S.No','Event Name','Team Name','Team Leader','College Name','Total Members','Transaction ID','Contact'];
+
+        div(class="color")
             div(class="container")              
                 div(class="pad")
                     h3(class="text-center content1")= "Registration Transaction Details"
@@ -22,28 +24,20 @@
                         col(width="170")
                         thead(class="heading thead-light")
                             tr
-                                th="S.No"
-                                th="Event Name"
-                                th="Team Name"
-                                th="Team Leader"
-                                th="College Name"
-                                th="Total Members in Group"
-                                th="Transaction Id"
-                                th="Contact"
+                                for r in head
+                                    th= r
                                
-
                             tbody(class="eventable")
-                                -r= Object.assign({}, registers)
                                 -for(var i=0;i<registers.length;i++)
                                     tr
                                         td= i+1
-                                        td= r[i].event_name
-                                        td= r[i].team_name
-                                        td= r[i].team_leader
-                                        td= r[i].college_name
-                                        td= r[i].total_members
-                                        td= r[i].transaction
-                                        td= r[i].contact
+                                        td= registers[i].event_name
+                                        td= registers[i].team_name
+                                        td= registers[i].team_leader
+                                        td= registers[i].college_name
+                                        td= registers[i].total_members
+                                        td= registers[i].transaction
+                                        td= registers[i].contact
                                        
             
     <script src="../vikiran.js"></script>
