@@ -40,7 +40,9 @@
                                         td= registers[i].transaction
                                         td= registers[i].contact
                                         td= registers[i].date.toString().substring(0,(registers[i].date.toString().indexOf(':')-2))
-                                       
+
+            form(method="POST" action="/sahil_malik/transaction")
+                button(type="submit")= "Print PDF"    
             
     <script src="../vikiran.js"></script>
 

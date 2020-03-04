@@ -11,10 +11,6 @@ router.post('/pdf', (req, res, next)=>{
 
     const registers= await Register.find();
 
-    const fname = req.body.fname;
-    const lname = req.body.lname;
- 
-
     var documentDefinition = {
         content: [
             {
