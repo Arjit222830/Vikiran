@@ -16,7 +16,7 @@
             br
             <form class="contact-form" id="form_admin">
                 for r in html_names
-                    label(for="text-center data"+(i+1))=r
+                    label(for="data"+(i+1))=r
                     br
                     -if(types[i]=='textarea')
                         textarea(type=types[i-1] placeholder="Write about event" id="data"+(i+1) name=names[i++])

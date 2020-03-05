@@ -1,69 +1,36 @@
+const Joi= require('joi');
 const express = require('express');
 const router = express.Router();
 const {Register}= require('../models/register');
-const pdfMake = require('../pdfmake/pdfmake');
-const vfsFonts = require('../pdfmake/vfs_fonts');
-
-pdfMake.vfs = vfsFonts.pdfMake.vfs;
+const {Transaction, validateTransaction}= require('../models/transaction');
 
 router.get('/',async function(req,res){
     const registers= await Register.find();
     res.status(200).render('event_management',{registers: registers});
 });
 
-const table = (data)=>{
-  
-    /*var thead= ['S.No','Event Name','Team Name','Team Leader','College Name','Tot. Mem','Transaction ID','Contact','Date'];
-    for(var i=0;i<thead.length;i++)
-    {
-        var tbody=[];
-        tbody.push(i+1);
-        tbody.push(data[i].event_name);
-        tbody.push(data[i].team_name);
-        tbody.push(data[i].team_leader);
-        tbody.push(data[i].college_name);
-        tbody.push(data[i].total_members);
-        tbody.push(data[i].transaction);
-        tbody.push(data[i].contact);
-        tbody.push(data[i].date);
+router.post('/transaction',async (req,res)=>{
 
-        thead.push(tbody);
-    } */
-        var rows= [['S.No','Event Name','Team Name','Team Leader']];
-        for(var i=0;i<4;i++)
-            rows.push([i+1, data[i].event_name, data[i].team_name, data[i].team_leader]);
-    
-        return rows
-};
+    const {error}= validateTransaction(req.body);//result.error(joi package)
+    if(error)
+        return res.status(400).send(error.details[0].message);
 
-router.post('/transaction', async(req, res, next)=>{
+    if(req.body.transaction_no.length<10)
+        return res.status(400).send('Enter Valid Transaction ID');
 
-    const registers= await Register.find();
+    let user= await Transaction.findOne({ Transaction_No: req.body.transaction_no});
 
-    var documentDefinition = {
-        content: [
-            {
-                layout: 'lightHorizontalLines', // optional
-                table: {
-                    // headers are automatically repeated if the table spans over multiple pages
-                    // you can declare how many rows should be treated as headers
-                    headerRows: 1,
-                    widths: [ '*', 'auto', 100, '*', '100', ],
-                    body: table(registers)
-                }
-            }
-        ]
-    }
-    
-    const pdfDoc = pdfMake.createPdf(documentDefinition);
-    pdfDoc.getBase64((data)=>{
-    res.writeHead(200, {'Content-Type': 'application/pdf','Content-Disposition':'attachment;filename="registration_details.pdf"'});
-    const download = Buffer.from(data.toString('utf-8'), 'base64');
-    res.end(download);
+    if(user)
+        return res.status(400).send('Transaction Id already entered..');
 
+    const transaction= new Transaction({
+        Transaction_No: req.body.transaction_no
     });
+        
+    await transaction.save();
+    
+    res.send({message:'Transaction ID added',link:'/'});
 });
-
 
 
 module.exports = router;

@@ -52,6 +52,10 @@ app.get('/event/:item',async function(req,res){
     res.status(200).render('event',{event:Object.assign({}, event)[0]});
 });
 
+app.get('/123transaction456',async function(req,res){
+    res.status(200).render('security');
+});
+
 const port=process.env.PORT || 3000;
 console.log(port);
 const server=app.listen(port, ()=> console.log(`Listening on port ${port}...`));

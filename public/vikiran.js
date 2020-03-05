@@ -74,7 +74,6 @@ $(document).ready(()=>{
 $(document).ready(()=>{
     $("#form_members").submit( (e)=>{
         e.preventDefault();
-        console.log("h");
         $.ajax({
             url: '/register/'+ev+"-"+max_mem,
             method: "POST",
@@ -87,3 +86,22 @@ $(document).ready(()=>{
         }); 
     });
 });
+
+$(document).ready(()=>{
+    $("#form_transaction").submit( (e)=>{
+        e.preventDefault();
+        $.ajax({
+            url: '/sahil_malik/transaction',
+            data :{
+                transaction_no: $('#data').val(),
+            },
+            method: "POST",
+            success : function(data){
+                window.location.replace(data.link);
+            },
+            error:function(err){
+                alert(JSON.stringify(err.responseText));
+            }
+        }); 
+    });
+})
