@@ -4,7 +4,7 @@
     
     <body>
 
-        -var head= ['S.No','Event Name','Team Name','Team Leader','College Name','Tot. Mem','Transaction ID','Contact','Status','Date',];
+        -var head= ['S.No','Event Name','Team Name','Team Leader','College Name','Tot. Mem','Transaction ID','Contact','Paid','Date',];
 
         div(class="color")
             div(class="container")              
@@ -45,9 +45,9 @@
                                         td= registers[i].transaction
                                         td= registers[i].contact
                                         -if(count!=0)
-                                            td= "Ok"
+                                            td= "Yes"
                                         -else
-                                             td= "-"
+                                             td= "No"
                                         td= registers[i].date.toString().substring(0,(registers[i].date.toString().indexOf(':')-2))
                                         
             
