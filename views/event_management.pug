@@ -4,7 +4,7 @@
     
     <body>
 
-        -var head= ['S.No','Event Name','Team Name','Team Leader','College Name','Tot. Mem','Transaction ID','Contact','Date'];
+        -var head= ['S.No','Event Name','Team Name','Team Leader','College Name','Tot. Mem','Transaction ID','Contact','Status','Date',];
 
         div(class="color")
             div(class="container")              
@@ -15,14 +15,15 @@
                 div(style="overflow-x:auto")
                     table(class="text-center content table table-dark table-striped table-bordered")
                         col(width="10" height="1vh")
-                        col(width="150")
-                        col(width="150")
-                        col(width="150")
-                        col(width="150")
+                        col(width="140")
+                        col(width="140")
+                        col(width="140")
+                        col(width="140")
                         col(width="5")
-                        col(width="150")
-                        col(width="150")
-                        col(width="150")
+                        col(width="140")
+                        col(width="140")
+                        col(width="140")
+                        col(width="140")
                         thead(class="heading thead-light")
                             tr
                                 for r in head
@@ -31,6 +32,10 @@
                             tbody(class="eventable")
                                 -for(var i=0;i<registers.length;i++)
                                     tr
+                                        -var count=0;
+                                        each t in transactions
+                                            -if(t.Transaction_No==registers[i].transaction)
+                                                -count++
                                         td= i+1
                                         td= registers[i].event_name
                                         td= registers[i].team_name
@@ -39,7 +44,12 @@
                                         td= registers[i].total_members
                                         td= registers[i].transaction
                                         td= registers[i].contact
+                                        -if(count!=0)
+                                            td= "Ok"
+                                        -else
+                                             td= "-"
                                         td= registers[i].date.toString().substring(0,(registers[i].date.toString().indexOf(':')-2))
+                                        
             
     <script src="../vikiran.js"></script>
 

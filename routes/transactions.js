@@ -6,7 +6,8 @@ const {Transaction, validateTransaction}= require('../models/transaction');
 
 router.get('/',async function(req,res){
     const registers= await Register.find();
-    res.status(200).render('event_management',{registers: registers});
+    const transactions= await Transaction.find();
+    res.status(200).render('event_management',{registers: registers,transactions: transactions});
 });
 
 router.post('/transaction',async (req,res)=>{
