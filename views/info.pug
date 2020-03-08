@@ -5,7 +5,6 @@
     <body>
 
         -var head= ['S. No','Team Name','Team Leader','Enrollment No.','College Name','Tot. Mem','Contact',"Other Members",'Status','Date'];
-        -var sno= 0;
 
         div(class="color")
             div(class="container")              
@@ -39,7 +38,7 @@
                                             -count++
                                             -break
                                     tr
-                                        td= ++sno
+                                        td= i+1
                                         td= r[i].team_name
                                         td= r[i].team_leader
                                         td= r[i].enroll_no
