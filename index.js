@@ -5,6 +5,7 @@ var bodyParser = require("body-parser");
 const config= require('config');
 const {Society}= require('./models/society');
 const {Register}= require('./models/register');
+const {Transaction}= require('./models/transaction');
 const societies= require('./routes/societies');
 const registers= require('./routes/registers');
 const transactions= require('./routes/transactions');
@@ -44,7 +45,8 @@ app.get('/details',async function(req,res){
 
 app.get('/details/:event',async function(req,res){
     const registers= await Register.find({event_name:  req.params.event});
-    res.status(200).render('info',{registers: registers,event: req.params.event});
+    const transactions= await Transaction.find();
+    res.status(200).render('info',{registers: registers,event: req.params.event, transactions: transactions});
 });
 
 app.get('/event/:item',async function(req,res){
