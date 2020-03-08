@@ -4,7 +4,7 @@
     
     <body>
 
-        -var head= ['S.No','Team Name','Team Leader','Enrollment No.','College Name','Total Members','Contact',"Other Members",'Date'];
+        -var head= ['S. No','Team Name','Team Leader','Enrollment No.','College Name','Tot. Mem','Contact',"Other Members",'Status','Date'];
         -var sno= 0;
 
         div(class="color")
@@ -20,9 +20,10 @@
                         col(width="160")
                         col(width="160")
                         col(width="160")
+                        col(width="10")
                         col(width="160")
                         col(width="160")
-                        col(width="160")
+                        col(width="10")
                         col(width="160")
                         thead(class="heading thead-light")
                             tr
@@ -37,26 +38,28 @@
                                         -if(t.Transaction_No== r[i].transaction)
                                             -count++
                                             -break
-
-                                    -if(count!=0)
-                                        tr
-                                            td= ++sno
-                                            td= r[i].team_name
-                                            td= r[i].team_leader
-                                            td= r[i].enroll_no
-                                            td= r[i].college_name
-                                            td= r[i].total_members
-                                            td= r[i].contact
-                                            -if(r[i].Other_Members!= undefined)
-                                                -if(r[i].Other_Members['2']== undefined)
-                                                    td= r[i].Other_Members['1']
-                                                -else if(r[i].Other_Members['3']== undefined)
-                                                    td= r[i].Other_Members['1']+","+r[i].Other_Members['2']
-                                                -else if(r[i].Other_Members['4']== undefined)
-                                                    td= r[i].Other_Members['1']+","+r[i].Other_Members['2']+","+r[i].Other_Members['3']
-                                                -else
-                                                    td= r[i].Other_Members['1']+","+r[i].Other_Members['2']+","+r[i].Other_Members['3']+","+r[i].Other_Members['4']
-                                            td= r[i].date.toString().substring(0,(r[i].date.toString().indexOf(':')-2))
+                                    tr
+                                        td= ++sno
+                                        td= r[i].team_name
+                                        td= r[i].team_leader
+                                        td= r[i].enroll_no
+                                        td= r[i].college_name
+                                        td= r[i].total_members
+                                        td= r[i].contact
+                                        -if(r[i].Other_Members!= undefined)
+                                            -if(r[i].Other_Members['2']== undefined)
+                                                td= r[i].Other_Members['1']
+                                            -else if(r[i].Other_Members['3']== undefined)
+                                                td= r[i].Other_Members['1']+","+r[i].Other_Members['2']
+                                            -else if(r[i].Other_Members['4']== undefined)
+                                                td= r[i].Other_Members['1']+","+r[i].Other_Members['2']+","+r[i].Other_Members['3']
+                                            -else
+                                                td= r[i].Other_Members['1']+","+r[i].Other_Members['2']+","+r[i].Other_Members['3']+","+r[i].Other_Members['4']
+                                        -if(count!=0)
+                                            td="Verified"
+                                        -else
+                                            td="-"
+                                        td= r[i].date.toString().substring(0,(r[i].date.toString().indexOf(':')-2))
             
     <script src="../vikiran.js"></script>
 
