@@ -92,7 +92,7 @@ $(document).ready(()=>{
         e.preventDefault();
         $.ajax({
             url: '/sahil_malik/transaction',
-            data :{
+            data : {
                 transaction_no: $('#data').val(),
             },
             method: "POST",
